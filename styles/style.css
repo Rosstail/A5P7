@@ -1,0 +1,65 @@
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	background-color: #dfdfdf;
+
+}
+
+header {
+	background-image: url("https://hdwallpaperz.net/wp-content/uploads/2017/01/Background-Image-Green-HD.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	border-bottom-color: blue;
+	border-bottom-style: solid;
+}
+
+.header-buttons {
+	position: fixed;
+	width: 100%;
+	margin-top: 0;
+	padding-top: 5px;
+	padding-bottom: 5px; 
+	background-color: #111111;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+header .header-buttons img {
+	height: 50px;
+}
+
+header .header-buttons #navbar {
+	margin-right: 5px;
+}
+
+header .header-buttons #navbar a {
+	border-radius: 3px;
+	margin-right: 5px;
+	margin-left: 5px;
+	padding: 5px;
+	border-width: 5px;
+	font-size: 1.2em;
+	color: white;
+}
+
+header .header-buttons #navbar a:hover {
+	transition: border-width 0.27s linear;
+	text-decoration-color: white;
+	text-decoration: none;
+	border-bottom-style: solid;
+	border-bottom-color: white;
+	border-bottom-width: 2px;
+}
+
+footer {
+	background-color: #111111;
+	color: white;
+	width: 100%;
+	margin-bottom: 0;
+}
