@@ -4,7 +4,7 @@ html {
 
 body {
 	margin: 0;
-	background-color: #dfdfdf;
+	background-color: #444444;
 
 }
 
@@ -38,6 +38,10 @@ header .header-buttons #navbar {
 	margin-right: 5px;
 }
 
+a {
+	color: white;
+}
+
 header .header-buttons #navbar a {
 	border-radius: 3px;
 	margin-right: 5px;
@@ -45,7 +49,6 @@ header .header-buttons #navbar a {
 	padding: 5px;
 	border-width: 5px;
 	font-size: 1.2em;
-	color: white;
 }
 
 header .header-buttons #navbar a:hover {
@@ -58,8 +61,51 @@ header .header-buttons #navbar a:hover {
 }
 
 footer {
-	background-color: #111111;
 	color: white;
+	background-color: #111111;
+	border-top-style: solid;
 	width: 100%;
-	margin-bottom: 0;
+}
+
+.foot {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	width: 100%;
+	justify-content: flex-end;
+}
+
+.foot .right {
+	flex-basis: 8%;
+	height: 20px;
+	background-color: white;
+}
+
+.foot .middle {
+	flex-basis: 10%;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.to-header {
+	width: auto;
+	background-color: #444444;
+	color: white;
+	border-style: solid;
+	border-width: 5px;
+	border-radius: 2px;
+	border-color: white;
+	padding: 3px 1px;
+	text-align: center;
+}
+
+.low-foot {
+	width: 90%;
+	margin-right: auto;
+	margin-left: auto;
+	border-top-style: solid;
+	border-width: 3px;
+	border-color: #444444;
+	display: flex;
+	justify-content: space-around;
 }
