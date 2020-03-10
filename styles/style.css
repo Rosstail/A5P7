@@ -41,10 +41,6 @@ a {
 	color: white;
 }
 
-p {
-	display: block;
-}
-
 header .header-buttons #navbar a {
 	border-radius: 3px;
 	margin-right: 5px;
@@ -104,6 +100,7 @@ header .header-buttons #navbar a:hover {
 #contentProject.active {
     /* Depending on this value, your animatiom will seem faster or shorter */
     max-height: unset;
+    transition: max-height 1000ms;
 }
 
 #contentTeam {
@@ -121,6 +118,7 @@ header .header-buttons #navbar a:hover {
 #contentTeam.active {
     /* Depending on this value, your animatiom will seem faster or shorter */
     max-height: unset;
+    transition: max-height 1000ms;
 }
 
 #contentETC {
@@ -138,6 +136,7 @@ header .header-buttons #navbar a:hover {
 #contentETC.active {
     /* Depending on this value, your animatiom will seem faster or shorter */
     max-height: unset;
+    transition: max-height 1000ms;
 }
 
 .sub-content {
@@ -153,8 +152,9 @@ header .header-buttons #navbar a:hover {
 	background-color: white;
 	margin-right: 0;
 	margin-left: auto;
-	border-top-left-radius: 15px;
-	border-bottom-left-radius: 15px;
+	border-width: 2px;
+	border-top-left-radius: 9px;
+	border-bottom-left-radius: 9px;
 	border-style: solid;
 	border-color: white;
 }
@@ -162,16 +162,17 @@ header .header-buttons #navbar a:hover {
 .to-header {
 	background-color: #111111;
 	color: white;
-	border-top-left-radius: 15px;
-	border-bottom-left-radius: 15px;
+	border-top-left-radius: 9px;
+	border-bottom-left-radius: 9px;
 	border-style: solid;
-	border-width: 5px;
+	border-width: 1px;
 	border-right-width: 40px; 
 	padding: 3px 1px;
 	text-align: center;
+	align-items: center;
 }
 
-.to-header a:hover {
+.to-header:hover {
 	/*color: #7F7F7F;*/
 	font-weight: bolder;
 }
