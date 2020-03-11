@@ -41,6 +41,15 @@ a {
 	color: white;
 }
 
+h1 {
+	text-shadow: 1px 1px 10px red;
+	font-weight: bolder;
+	font-size: 6em;
+	color: white;
+	text-align: center;
+	/*visibility: hidden;*/
+}
+
 header .header-buttons #navbar a {
 	border-radius: 3px;
 	margin-right: 5px;
