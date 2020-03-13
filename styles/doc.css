@@ -1,0 +1,67 @@
+#contentNewUser {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #444444;
+	color: white;
+    max-height: 0px;
+    overflow: hidden;
+    /* You should prefix the following: */
+    transition: max-height 1000ms;
+}
+
+#contentNewUser.active {
+    /* Depending on this value, your animatiom will seem faster or shorter */
+    max-height: unset;
+}
+
+#contentCustomer {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #444444;
+    color: white;
+    max-height: 0px;
+    overflow: hidden;
+    /* You should prefix the following: */
+    transition: max-height 1000ms;
+}
+
+#contentCustomer.active {
+    /* Depending on this value, your animatiom will seem faster or shorter */
+    max-height: unset;
+}
+
+#contentArchitect {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #444444;
+    color: white;
+    max-height: 0px;
+    overflow: hidden;
+    /* You should prefix the following: */
+    transition: max-height 1000ms;
+}
+
+#contentArchitect.active {
+    /* Depending on this value, your animatiom will seem faster or shorter */
+    max-height: unset;
+}
+
+#contentAdmin {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #444444;
+    color: white;
+    max-height: 0px;
+    overflow: hidden;
+    /* You should prefix the following: */
+    transition: max-height 1000ms;
+}
+
+#contentAdmin.active {
+    /* Depending on this value, your animatiom will seem faster or shorter */
+    max-height: unset;
+}
