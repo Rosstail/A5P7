@@ -30,24 +30,16 @@ header {
 }
 
 header .header-buttons img {
-	height: 50px;
+	height: 5vw;
 }
 
 header .header-buttons #navbar {
+	display: flex;
 	margin-right: 5px;
 }
 
 a {
 	color: white;
-}
-
-h1 {
-	text-shadow: 1px 1px 10px red;
-	font-weight: bolder;
-	font-size: 6em;
-	color: white;
-	text-align: center;
-	/*visibility: hidden;*/
 }
 
 header .header-buttons #navbar a {
@@ -67,6 +59,91 @@ header .header-buttons #navbar a:hover {
 	border-bottom-style: solid;
 	border-bottom-color: white;
 	border-bottom-width: 2px;
+}
+
+@media only screen and (max-width: 680px) {
+	header .header-buttons #navbar {
+		display: none;
+	}
+}
+
+.dropbtn {
+	display: none;
+  	background-color: white;
+  	color: #111111;
+  	padding: 1vw;
+  	font-size: 16px;
+  	border: none;
+  	cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #111111;	
+  color: white;
+}
+
+.dropdown {
+  position: relative;
+  display: none;
+}
+
+@media only screen and (max-width: 680px) {
+	.dropbtn {
+		display: block;
+	}
+
+	.dropdown {
+		display: inline-block;
+	}
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0px;
+  background-color: #f1f1f1;
+  min-width: unset;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 1vw 1.2vw;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+	background-color: #ddd;
+}
+
+.show {
+	display: block;
+}
+
+.title-carousel {
+	margin-top: 30px;
+	text-align: center;
+	width: 80%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.title-carousel img { 
+	text-align: center;
+	height: 25vw;
+}
+
+h1 {
+	text-shadow: 1px 1px 10px red;
+	font-weight: bolder;
+	font-size: 7vw;
+	color: white;
+	text-align: center;
 }
 
 .category {
@@ -109,7 +186,6 @@ header .header-buttons #navbar a:hover {
 #contentProject.active {
     /* Depending on this value, your animatiom will seem faster or shorter */
     max-height: unset;
-    transition: max-height 1000ms;
 }
 
 #contentTeam {
@@ -127,7 +203,6 @@ header .header-buttons #navbar a:hover {
 #contentTeam.active {
     /* Depending on this value, your animatiom will seem faster or shorter */
     max-height: unset;
-    transition: max-height 1000ms;
 }
 
 #contentETC {
@@ -145,7 +220,6 @@ header .header-buttons #navbar a:hover {
 #contentETC.active {
     /* Depending on this value, your animatiom will seem faster or shorter */
     max-height: unset;
-    transition: max-height 1000ms;
 }
 
 .sub-content {

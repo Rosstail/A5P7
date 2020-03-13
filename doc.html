@@ -6,9 +6,7 @@
 	<meta name="description" content="DESCRIPTION DE LA PAGE.">
 	<meta name="keywords" content="keyword1, keyword2, keyword3" lang="fr">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="styles/style.css">
-	<script src="https://kit.fontawesome.com/a076d05399.js"></script>	
 </head>
 <body>
 	<header>
@@ -22,19 +20,8 @@
 					<a href="doc.html">DOCUMENTATION</a>
 					<a href="">SAMPLE TEXT</a>
 				</div>
-				<div class="dropdown">
-					<button onclick="myFunction(event)" class="dropbtn">
-						MENU
-						<i class="fas fa-bars"></i>
-					</button>
-					<div id="myDropdown" class="dropdown-content">
-						<a href="accueil.html">Accueil</a>
-						<a href="doc.html">Documentation</a>
-						<a href="#contact">Sample text</a>
-					</div>
-				</div>
 			</div>
-			<div>
+			<div style="display: none">
 				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 				    <div class="carousel-inner">
 				    	<div class="carousel-item active">
@@ -56,14 +43,9 @@
 				     	<span class="sr-only">Next</span>
 				    </a>
 
-				    <div class="title-carousel">
-				    	<!--<div>
-				   			<img src="https://upload.wikimedia.org/wikipedia/fr/thumb/6/6b/Tetris_99_Logo.webp/737px-Tetris_99_Logo.webp.png">
-				   		</div>-->
-				    	<div>
-					    	<h1>PROJECT<br>
-					    	CA DESIGN</h1>
-					    </div>
+				    <div class="title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+				    	<img src="https://upload.wikimedia.org/wikipedia/fr/thumb/6/6b/Tetris_99_Logo.webp/737px-Tetris_99_Logo.webp.png">
+				    	<h1>PROJECT<br>CA DESIGN</h1>
 				    </div>
 				</div>
 				<!--On implémente le js de bootstrap-->
@@ -75,6 +57,7 @@
 	</header>
 
 	<div>
+
 		<div class="category">
 			<button onclick="showHideProject()">NOTRE PROJET</button>
 		</div>
@@ -130,27 +113,6 @@
 	</footer>
 
 	<script>
-		/* When the user clicks on the button, 
-		toggle between hiding and showing the dropdown content */
-		function myFunction(event) {
-			event.stopPropagation();
-			document.getElementById("myDropdown").classList.toggle("show");
-		}
-
-		// Close the dropdown if the user clicks outside of it
-		window.onclick = function(event) {
-			if (!event.target.matches('.dropbtn')) {
-				var dropdowns = document.getElementsByClassName("dropdown-content");
-				var i;
-				for (i = 0; i < dropdowns.length; i++) {
-					var openDropdown = dropdowns[i];
-					if (openDropdown.classList.contains('show')) {
-						openDropdown.classList.remove('show');
-					}
-				}
-			}
-		}
-
 		function showHideProject(){
 		    var div = document.getElementById("contentProject");
 		    if (div.className === "") {
@@ -178,5 +140,5 @@
 		    }
 		}
 	</script>
-	<!--<script type="text/javascript" src="scripts/JQ.js"></script>-->
+
 </body>
