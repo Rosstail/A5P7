@@ -43,7 +43,7 @@
 
 	<div>
 		<div class="category">
-			<button>PRÉSENTATION GÉNÉRALE</button>
+			<p>PRÉSENTATION GÉNÉRALE</p>
 			<div style="display: flex; justify-content: space-between; width: 90%; margin-left: auto; margin-right: auto;">
 				<button style="font-size: 2vw;" onmouseenter="showHideNewUser()">NOUVEL UTILISATEUR</button>
 				<button style="font-size: 2vw;" onmouseenter="showHideCustomer()">CLIENT</button>
@@ -56,17 +56,70 @@
 				<div id="Download">
 					<h8>DOWNLOAD</h8>
 				</div>
-				<div id="Register">
-					<h8>REGISTER</h8>
-				</div>
-				<div id="Connexion">
-					<h8>CONNEXION</h8>
+				<div id="Register / Log In">
+					<div>
+						<h8>REGISTER / LOG IN</h8>
+						<img src="img/logIn.png">
+						<p>
+							Une fois l'application lancée, il vous est possible de vous enregistrer en tant que nouvel utilisateur ou bien de vous login en tant qu'administrateur avec les identifiants par défaut. Partons du principe que vous êtes un tout nouvel utilisateur : voici le menu d'enregistrement de compte que vous aurez après avoir appuyé sur le bouton "create an Account" en bas de l'écran.
+
+							Si vous souhaitez vous login :
+							<li>Enter mail : Entrez votre adresse mail d'inscription</li>
+							<li>Enter password : Entrez votre mot de passe choisi à l'inscription</li>
+							<li>Validate : Cliquez pour vous connecter.</li>
+							<li>"Remember my account" est une case que vous pouvez cocher pour conserver votre mail et mot de passe à l'écran de connection. Ne recochez cete case que si vous souhaitez conserver un autre mail / mot de passe.</li>
+						</p>
+					</div>
+					<div>
+					<img src="img/register.png">
+						<p>
+							<li>Enter your name: insérez votre nom de famille.</li>
+							<li>Enter your firstname: insérer votre prénom.</li>
+							<li>Enter your mail: insérez votre adresse mail.</li>
+							<li>Enter your password: insérez votre mot de passe. Celui-ci doit faire au moins 12 caractères, comporter au moins 3 chiffres, 3 minuscules, 2 majuscules et 2 caractères spéciaux.</li>
+							<li>Choose your role: sélectionnez le rôle que vous souhaitez obtenir, "Architect" pour architecte et "Customer" pour client. Ce sera à l'administateur de vous valider manuellement.</li>
+							Pour finir, appuyez sur "Validate" pour confirmer votre inscription. Vous pourrez dès à présent vous connecter.
+
+						</p>
+					</div>
 				</div>
 				<div id="UpdateInfo">
 					<h8>UPDATE INFO</h8>
+					<p>
+						Il vous est possible de changer vos informations de sécurité à n'importe quel moment. Pour cela, une fois connecté, accédez à cet écran comme suit: "Account" -> "Update Infos". 
+					</p>
+					<img src="img/updateInfos.png">
+					<p>
+						Vous pourrez donc y changer votre adresse mail et/ou votre mot de passe. 
+						<li>New Mail Adress: entrez votre nouvelle adresse mail ou laisser vide pour la laisser inchangée.</li>
+						<li>[OBLIGATOIRE] Password: Si vous souhaitez changer un de vos paramètres, vous devrez entrer votre mot de passe actuel.</li>
+						<li>New password: Nouveau mot de passe qui doit respecter la syntaxe suivante: comporter au moins 3 chiffres, 3 minuscules, 2 majuscules et 2 caractères. Laisser vide pour le laisser tel quel.</li>
+						<li>Validate : confirmez votre changeemnt de mail / mot de passe. Les critères cités plus haut doient être valides.</li>
+					</p>
 				</div>
 				<div id="Filter">
 					<h8>FILTER</h8>
+					<p>
+						Une fois validé dans un groupe ou en tant qu'administarteur, il vous est possible de filtrer les résultats de vos recherches, pour filtrer les noms d'utilisateurs, les prénoms ou le nom de projet. Tous les filtres peuvent être appliqué en même temps.
+						<li>Les filtres textuels filtrent les résultats, n'affichant le contenu que si celui-ci contient et commence par les mêmes caractères quevous avez entré.</li>
+						<li>Il vous faudra raffraichir le filtrage en appuyant sur un bouton de confirmation, afin de pouvoir lancer le filtre.</li>
+					</p>
+				</div>
+				<div id="Conversations">
+					<h8>CONVERSATIONS</h8>
+					<p>
+						La messagerie est notre partie phare de l'application ! En tant que client, vous pourrez communiquer avec votre architecte référrent pour chaqun de vos projet, en plus de pouvoir discuter avec les autres architectes qui auront prêté main forte à votre référrent. Une fonction de filtre y est présente, à savoir:
+						<li>Le nom de Projet</li>
+						<li>le nom d'utilisateur</li>
+						<li>Le prénom d'utilisateur</li>
+						Les architectes peuvent faire de même.
+					</p>
+					<img src="img/conversations.png">
+					<p>
+						En haut se situent les projets et les émeteurs des messages trié du plus réçent au plus ancien.
+						<li>Cliquez dessus pour afficher tous les messages entre lui et vous dans l'interface en bas.</li>
+						<li>Cliquez sur "Answer" pour répondre au message.</li>
+					</p>
 				</div>
 			</div>
 		</div>
@@ -74,13 +127,24 @@
 			<div class="sub-content">
 				<div id="CheckOwnedProjects">
 					<h8>CHECK OWNED PROJECTS</h8>
+					<img src="img/menuCust.png">
 					<li>General</li>
+					<p>
+						<img src="img/projectArch.png">
+						En tant que client, vous aurez surement un ou plusieurs projets effectué sur votre demande. Vous pourrez consulter l'avancée de chacun d'entre eux avec filtrage.
+						<li>Nom de projet</li>
+						<li>Nom de l'architecte référrent</li>
+						<li>Prénom de l'architecte référrent</li>
+						Vous pourrez consulter les détails de votre projet en cliquant sur les boutons.
+						<p>
+							<li>Get project's details : pour voir les détails comme les matériaux du projet, les coûts...</li>
+							<li>get project's steps : Consultez l'avancée de votre projet avec les différentes étapes et informations par rapport à celles ci.</li>
+						</p>
+					</p>
 					<li>Details</li>
-				</div>
-				<div id="CommunicateWithArchs">
-					<h8>COMMUNICATE WITH ARCHITECTS</h8>
-					<li>Refferent architect</li>
-					<li>Architects linked to project</li>
+					<img src="img/projectDetailsArch.png">
+					<li>Steps</li>
+					<img src="img/stepProjectArch.png">
 				</div>
 			</div>
 		</div>
@@ -88,31 +152,121 @@
 			<div class="sub-content">
 				<div id="ModifyOwnedProjects">
 					<h8>MODIFY PROJECT</h8>
+					<p>
+						En tant qu'architecte, vous avez la capacité de modifier le contenu de n'importe quel projet sur lequel vous êtes référent. Pour modifier une donnée, il vous suffit de double-clicker dessus puis de taper le texte que vous souhaitez. Une fois cela fait, appuyez sur la touche "ENTRER" de votre clavier et hop, l'information est mise à jour !<br>
+					</p>
 					<li>General</li>
+					<img src="img/projectArch.png">
+					<p>
+						Voici ici les informations globales du projet. Vous pouvez les modifier directement comme décrit plus haut ou juste sélectionner le projet que vous souhaitez et cliquer sur "get project details" ou "get project steps" pour obtenir respectivement les détails du projet ou ses étapes.
+						<li>name</li> Il s'agit du nom du projet.
+						<li>customer_name</li> Le nom du client pour ce projet.
+						<li>architect_name</li> votre nom en tant qu'architecte référrant.
+						<li>start_datetime</li> La date de démarrage du projet. Doit respecter la syntaxe AAAA-MM-DD HH-mm.
+						<li>delivery_datetime</li> La date prévue pour la livraison du projet. Doit respecter la syntaxe AAAA-MM-DD HH-mm.
+						<li>quotation</li> Le prix du projet pour le client.
+						<li>commentary</li> Un commentaire rapide sur le projet.
+					</p>
 					<li>Details</li>
+					<img src="img/projectDetailsArch.png">
+					<p>
+						Vous pourrez ici éditer les matériaux liés au projet, de sorte à ce que le prix total situé plus bas se mette aussi à jour. La modification se fait de la même manière que décrite ci-dessus, en sélectionnant puis éditant la case.
+
+						<li>project_name</li> Il s'agit du nom du projet.
+						<li>material_name</li> le nom du matériau.
+						<li>needed_surface</li> La surface en m² de matériau à utiliser. Doit être un nombre.
+						<li>cost</li> Le coût du matériau au m². Doit être un nombre.
+					</p>
 					<li>Used Materials</li>
-				</div>
-				<div id="CommunicateWithCust">
-					<h8>COMMUNICATE</h8>
-					<li>Private with Customer</li>
-					<li>Group with other Architects</li>
+					<img src="img/stepProjectArch.png">
+					<p>
+						Vous pourrez ici éditer les étapes liées au projet, toujours par sélection puis modification directe. Un  petit bouton en bas vous permettra d'ajouter de nouvelles étapes au projet sélectionné.
+						<li>project_name</li> Il s'agit du nom du projet.
+						<li>architect_name</li> Le nom de l'architecte attelé à l'étape.
+						<li>step_name</li> le nom de l'étape.
+						<li>start_datetime</li> La date de démarrage de l'étape. Doit respecter la syntaxe AAAA-MM-DD HH-mm.
+						<li>done_datetime</li> La date prévue pour la livraison de l'étape. Doit respecter la syntaxe AAAA-MM-DD HH-mm.
+						<li>commentary</li> Un commentaire rapide sur l'étape.
+					</p>
 				</div>
 			</div>
 		</div>
 		<div id="contentAdmin">
 			<div class="sub-content">
 				<div id="GodMod">
+					<p>
+						L'administrateur a tous les droits utilisateurs. Cependant, celui-ci a une interface différente. Il a donc accès à toute la messagerie, aux utilisateurs, aux projets et leurs détails ainsi qu'à la gestion des nouveaux inscrits.<br>
+						pour modifier le contenu d'une case dans les tableaux qui seront montrés, il suffit de double-clicker dessus, réécrire le texte à l'intérieur avant d'appuyer sur la touche "ENTRER".
+					</p>
 					<h8>CRUD</h8>
 					<li>Users</li>
-					<li>Projects</li>
-					<li>Projects Details</li>
-					<li>Materials</li>
-					<li>Projects Materials</li>
-					<li>Conversations</li>
+					<img src="img/userManagement.png">
+					<p>
+						L'inerface de gestion d'utilisateur permet à l'administrateur de gérer tous les utilistauers qui ne sont pas administrateurs. Il est possible de filtrer les utilisateurs selon leur rôle: "architect" ou "customer", correspondant à "architecte" et "client".<br>
+						<li>name</li> Le nom de l'utilisateur.
+						<li>firstname</li> Le prénom de l'utilisateur.
+						<li>mail</li> Il s'agit de l'adresse mail de l'utilisateur pour se connecter à l'application. Nous vous conseillons de n'y toucher que si l'utilisateur perd son adresse mail.
+						<li>password</li> Il s'agit du mot de passe en clair de l'utilisateur pour se connecter à l'application. Nous vous conseillons de n'y toucher que si l'utilisateur perd son accès.
+						<li>role</li> Permet de modifier le role de l'utilisateur et par conséquent ses permissions. Si vous vous trompez d'orthographe lors du filtre, retirez le filtre pour retrouver l'utilisateur en question.
+						<li>signdatetime</li> La date et l'heure d'inscription de l'utilisateur sur l'application. Doit respecter la syntaxe suivante: AAAA-MM-JJ HH:mm.
 
-					<h8>USERS VALIDATION</h8>
-					<li>Set as Customer</li>
-					<li>Set as Architect</li>
+						<br><br>
+						Vous pouvez sélectionner un utilisateur puis cliquer sur "Dete an user" pour l'effacer.
+					</p>
+					<img src="img/addUser.png">
+					<p>
+						En cliquant sur "Adding an user", vous accédez à un écran d'ajout d'utilisateur, afin de pré-créer ce dernier.
+						Dans l'ordre, vous pourrez y insérer les informations suivantes:
+						<li>Le nom</li>
+						<li>Le prénom</li>
+						<li>L'adresse mail</li> Doit être unique, sinon, l'action est refusée.
+						<li>le mot de passe</li> Doit faire 12 caractères minimum et doit contenit au moins 3 minuscules, 3 chiffres, 2 majuscules et 2 caractères spéciaux. Sinon, l'action est refusée
+						<li>Le role</li> Le menu déroulant vous propose soit Customer (client), soit architecte.
+						Cliquez sur "VALIDATE" pour inscrire l'utilisateur. Sa date d'inscription est comprise automatiquement.
+					</p>
+					<img src="img/userValidation.png">
+					<p>
+						Lorsqu'un utilisateur s'inscrit sur l'application, celui-ci n'a pas automatiquement les droits autre que modifier son mail et/ou mot de passe. C'est donc à vous de valider son compte ou de le refuser. En cas de refus, l'utilisateur est supprimé.<br>
+						Pour valider ou refuser un utilisateur, cliquez sur sa ligne, puis cliquez sur "Accet selected user registration" ou "Reject selected user registration".
+						<li>role</li> présenté avec un "*" devant le rôle, cela signifie le rôle que l'utilisateur souhaite obtenir lors de son inscription. Ce rôle lui sera donné en cas de requête acceptée de votre part.
+					</p>
+					<li>Projects</li>
+					<p>
+						L'interface de gestion des projets vous permet d'éditer les projets de tous les architectes et clients. Vous pourrez ainsi éditer les étapes de ces mêmes projets ainsi que les matériaux utilisés à l'intérieur de ces même projets.<br>
+						Pour modifier le cntenu d'une case, double-clickez dessus avant de remplacer son texte. puis, appuyez sur entrer pour valider le changement.
+					</p>
+					<img src="img/projectArch.png">
+					<p>
+						Voici ici les informations globales du projet. Vous pouvez les modifier directement comme décrit plus haut ou juste sélectionner le projet que vous souhaitez et cliquer sur "get project details" ou "get project steps" pour obtenir respectivement les détails du projet ou ses étapes.
+						<li>name</li> Il s'agit du nom du projet.
+						<li>customer_name</li> Le nom du client pour ce projet.
+						<li>architect_name</li> votre nom en tant qu'architecte référrant.
+						<li>start_datetime</li> La date de démarrage du projet. Doit respecter la syntaxe AAAA-MM-DD HH-mm.
+						<li>delivery_datetime</li> La date prévue pour la livraison du projet. Doit respecter la syntaxe AAAA-MM-DD HH-mm.
+						<li>quotation</li> Le prix du projet pour le client.
+						<li>commentary</li> Un commentaire rapide sur le projet.
+					</p>
+					<li>Details</li>
+					<img src="img/projectDetailsArch.png">
+					<p>
+						Vous pourrez ici éditer les matériaux liés au projet, de sorte à ce que le prix total situé plus bas se mette aussi à jour. La modification se fait de la même manière que décrite ci-dessus, en sélectionnant puis éditant la case.
+
+						<li>project_name</li> Il s'agit du nom du projet.
+						<li>material_name</li> le nom du matériau.
+						<li>needed_surface</li> La surface en m² de matériau à utiliser. Doit être un nombre.
+						<li>cost</li> Le coût du matériau au m². Doit être un nombre.
+					</p>
+					<li>Used Materials</li>
+					<img src="img/stepProjectArch.png">
+					<p>
+						Vous pourrez ici éditer les étapes liées au projet, toujours par sélection puis modification directe. Un  petit bouton en bas vous permettra d'ajouter de nouvelles étapes au projet sélectionné.
+						<li>project_name</li> Il s'agit du nom du projet.
+						<li>architect_name</li> Le nom de l'architecte attelé à l'étape.
+						<li>step_name</li> le nom de l'étape.
+						<li>start_datetime</li> La date de démarrage de l'étape. Doit respecter la syntaxe AAAA-MM-DD HH-mm.
+						<li>done_datetime</li> La date prévue pour la livraison de l'étape. Doit respecter la syntaxe AAAA-MM-DD HH-mm.
+						<li>commentary</li> Un commentaire rapide sur l'étape.
+					</p>
 				</div>
 			</div>
 		</div>
