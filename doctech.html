@@ -46,24 +46,66 @@
 			<button>DOC TECHNIQUE</button>
 		</div>
 		<div>
-			<h8>FILTRES</h8>
 			<p>
+				<h8>FILTRES</h8><br>
+				Lorsque l'aplication doit afficher des informations à l'utilisateur, il se peut que certains filtres doient être mis en place pour éviter d'afficher des informations inutiles, mais aussi empêcher l'utilisateur d'accéder à des informations qu'il n'a pas le droit de voir en temps normal. De plus, l'utilisateur souhaite surement lui-même trouver plus facilement un certain contenu.<br>
+				<br>
+				Voici donc un exemple de filtre : celui-ci sert à afficher les projets de l'architetce référrént à celui-ci, avec potentiellement des filtres supplémentaires selon son bon vouloir.
+				<br>
 			</p>
+			<code>
+			    public String architectProjectFilter(JTextField userName, JTextField userFirstName, JTextField projectName) {<br>
+					String request = "SELECT A.architect_id, U.user_firstname, U.user_name, P.project_name, A.architect_assigned_datetime\n" +<br>
+			                "FROM architects AS A, users AS U, projects AS P " +
+			                "WHERE U.user_id = A.architect_id AND P.project_id = A.architect_project_id";<br>
+			        if (userFirstName.getText().length() >= 3)<br>
+			            request = request + " AND U.user_firstname LIKE '" + userFirstName.getText() + "%'";<br>
+			        if (userName.getText().length() >= 3)<br>
+			            request = request + " AND U.user_name LIKE '" + userName.getText() + "%'";<br>
+			        if (projectName.getText().length() >= 3)<br>
+			            request = request + " AND P.project_name LIKE '" + projectName.getText() + "%'";<br>
+			        System.out.println(request);<br>
+					<br>
+			        return request;<br>
+			    }<br><br>
+			</code>
+			<p>
 				<code>
-				    public String architectProjectFilter(JTextField userName, JTextField userFirstName, JTextField projectName) {<br>
-				        String request = "SELECT A.architect_id, U.user_firstname, U.user_name, P.project_name, A.architect_assigned_datetime\n" +
-				                "FROM architects AS A, users AS U, projects AS P WHERE U.user_id = A.architect_id AND P.project_id = A.architect_project_id";<br>
-				        if (userFirstName.getText().length() >= 3)<br>
-				            request = request + " AND U.user_firstname LIKE '" + userFirstName.getText() + "%'";<br>
-				        if (userName.getText().length() >= 3)<br>
-				            request = request + " AND U.user_name LIKE '" + userName.getText() + "%'";<br>
-				        if (projectName.getText().length() >= 3)<br>
-				            request = request + " AND P.project_name LIKE '" + projectName.getText() + "%'";<br>
-				        System.out.println(request);<br>
-						<br>
-				        return request;<br>
-				    }
+					public String architectProjectFilter(JTextField userName, JTextField userFirstName, JTextField projectName) {<br>
 				</code>
+				<br>
+				Il s'agit de a fonction appellée avant de faire la requête, étant donné que le filtre retourne une requête SQL sous forme de String.<br><br>
+				<code>
+					String request = "SELECT A.architect_id, U.user_firstname, U.user_name, P.project_name, A.architect_assigned_datetime\n" +<br>
+			                "FROM architects AS A, users AS U, projects AS P " +<br>
+			                "WHERE U.user_id = A.architect_id AND P.project_id = A.architect_project_id";<br>
+			    </code>
+
+			    Voici donc le filtre par défaut: il s'agit donc du filtre de permission: <br>
+			    <li>Dans SELECT</li> tout ce qui est séparé par des "," sont les collones des tables de la base de donnée qui seront affichées. Leur syntaxe est la suivante : [Alias].[Column].<br>
+			    L'alias est un identifiant pour alléger le code lorsque plusieurs tables sont utilisées en même temps et donc le rendre plus lisible.
+
+			    <li>Dans FROM</li>, ce qui suit sont les tables utilisées pour l'affichage de leur(s) colonne(s). C'est ici que l'on leur attribut l'alias: [Table] AS [Alias].
+
+			    <li>Dans WHERE</li>, il s'agit de conditions à remplir: seules les résultats de ce premier filtre de permission qui rempliront tous les critères seront acceptés. le filtrage n'est pas encore effectué puisqu'il s'agit juste de remplir un String.<br>
+			    Dans cet exemple, nous verifions pour chaque ligne que : le projet est bien supervisé par l'architecte et que l'utilisateur connecté est bien l'architecte en question.<br>
+			    <br>
+
+			    Maintenant que le filtre de permission est terminé, il reste à appliquer les filtres supplémentaires si l'utilisateur le désire : tous se basent sur le même principe.<br>
+
+			    <code>
+			        if (userFirstName.getText().length() >= 3)<br>
+			            request = request + " AND U.user_firstname LIKE '" + userFirstName.getText() + "%'";<br>
+			    </code>
+
+			    <li>Dans le IF</li>, nbous vérifions que le champs de texte que l'utilisateur a rempli précédemment contienne au moins 3 caractères: sinon, le filtre n'a pas lieu d'être et nous passons à la prochaine vérification OU au return.
+
+			    <li>Si la condition est VRAIE</li>, alors nous ajoutons à notre String une condition "AND" supplémentaire.<br>
+			    La condition supplémenaire ci-dessus vérifie que le prénom de l'utilisateur de la table (et non de l'appli) commence bien par le texte entré dans le champs de texte userFirstName, le % indiquant que la suite du texte n'est pas filtrée.<br>
+			    Nous vérifions le tetxe avec LIKE plutôt qu'un "=" afin de pouvoir vérifier une ressemblance et non si le texte est parfaitement égal.<br><br>
+
+			    Le même principe s'applique ensuite pour le nom de famille de l'utilisateur ainsi que le nom du projet. une fois tout cela effectué, le String est retourné et la requête aura lieu par la suite.
+			</p>
 		</div>
 	</div>
 	<!-- Footer / credits -  -->
