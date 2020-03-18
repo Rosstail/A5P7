@@ -1,0 +1,159 @@
+
+<head>
+	<meta charset="utf-8" />
+	<title>TITRE DE LA PAGE</title>
+	<meta name="language" content="fr">
+	<meta name="description" content="DESCRIPTION DE LA PAGE.">
+	<meta name="keywords" content="keyword1, keyword2, keyword3" lang="fr">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="styles/doc.css">
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>	
+</head>
+<body>
+	<header>
+		<div id="up-page">
+			<div class="header-buttons">
+				<div id="logo">
+					<a href="accueil.html"><img src="https://www.dotemu.com/wp-content/uploads/2018/02/logo.png"></a>
+				</div>
+				<div id="navbar">
+					<a href="accueil.html">ACCUEIL</a>
+					<a href="doc.html">DOCUMENTATION</a>
+					<a href="">SAMPLE TEXT</a>
+				</div>
+				<div class="dropdown">
+					<button onclick="myFunction(event)" class="dropbtn">
+						MENU
+						<i class="fas fa-bars"></i>
+					</button>
+					<div id="myDropdown" class="dropdown-content">
+						<a href="accueil.html">Accueil</a>
+						<a href="doc.html">Documentation</a>
+						<a href="#contact">Sample text</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<img style="width: 100%" src="https://d32ogoqmya1dw8.cloudfront.net/images/integrate/teaching_materials/global_energy/earths_thermostat_banner_3.jpg">
+		</div>
+	</header>
+
+	<div>
+		<div class="category">
+			<button>DOC TECHNIQUE</button>
+		</div>
+		<div>
+			<h8>FILTRES</h8>
+			<p>
+			</p>
+				<code>
+				    public String architectProjectFilter(JTextField userName, JTextField userFirstName, JTextField projectName) {<br>
+				        String request = "SELECT A.architect_id, U.user_firstname, U.user_name, P.project_name, A.architect_assigned_datetime\n" +
+				                "FROM architects AS A, users AS U, projects AS P WHERE U.user_id = A.architect_id AND P.project_id = A.architect_project_id";<br>
+				        if (userFirstName.getText().length() >= 3)<br>
+				            request = request + " AND U.user_firstname LIKE '" + userFirstName.getText() + "%'";<br>
+				        if (userName.getText().length() >= 3)<br>
+				            request = request + " AND U.user_name LIKE '" + userName.getText() + "%'";<br>
+				        if (projectName.getText().length() >= 3)<br>
+				            request = request + " AND P.project_name LIKE '" + projectName.getText() + "%'";<br>
+				        System.out.println(request);<br>
+						<br>
+				        return request;<br>
+				    }
+				</code>
+		</div>
+	</div>
+	<!-- Footer / credits -  -->
+	<footer>
+		<div class="low-foot">
+			<div><a href="">©2020 Tous droits réservés</a></div>
+			<div><a href="contact.html">Contact</a></div>
+		</div>
+	</footer>
+
+	<script>
+		/* When the user clicks on the button, 
+		toggle between hiding and showing the dropdown content */
+		function myFunction(event) {
+			event.stopPropagation();
+			document.getElementById("myDropdown").classList.toggle("show");
+		}
+
+		// Close the dropdown if the user clicks outside of it
+		window.onclick = function(event) {
+			if (!event.target.matches('.dropbtn')) {
+				var dropdowns = document.getElementsByClassName("dropdown-content");
+				var i;
+				for (i = 0; i < dropdowns.length; i++) {
+					var openDropdown = dropdowns[i];
+					if (openDropdown.classList.contains('show')) {
+						openDropdown.classList.remove('show');
+					}
+				}
+			}
+		}
+
+		function showHideNewUser(){
+		    var div = document.getElementById("contentNewUser");
+		    var customer = document.getElementById("contentCustomer");
+		    var architect = document.getElementById("contentArchitect");
+		    var admin = document.getElementById("contentAdmin");
+		    if (div.className === "") {
+		        customer.className = "";
+		        architect.className = "";
+		        admin.className = "";
+		        div.className = "active";
+		    } else {
+		        div.className = "";
+		    }
+		}
+
+		function showHideCustomer(){
+		    var div = document.getElementById("contentCustomer");
+		    var newUser = document.getElementById("contentNewUser");
+		    var architect = document.getElementById("contentArchitect");
+		    var admin = document.getElementById("contentAdmin");
+		    if (div.className === "") {
+		        newUser.className = "";
+		        architect.className = "";
+		        admin.className = "";
+		        div.className = "active";
+		    } else {
+		        div.className = "";
+		    }
+		}
+
+		function showHideArchitect(){
+		    var div = document.getElementById("contentArchitect");
+		    var newUser = document.getElementById("contentNewUser");
+		    var customer = document.getElementById("contentCustomer");
+		    var admin = document.getElementById("contentAdmin");
+		    if (div.className === "") {
+		        newUser.className = "";
+		        customer.className = "";
+		        admin.className = "";
+		        div.className = "active";
+		    } else {
+		        div.className = "";
+		    }
+		}
+
+		function showHideAdmin(){
+		    var div = document.getElementById("contentAdmin");
+		    var newUser = document.getElementById("contentNewUser");
+		    var customer = document.getElementById("contentCustomer");
+		    var architect = document.getElementById("contentArchitect");
+		    if (div.className === "") {
+		        newUser.className = "";
+		        customer.className = "";
+		        architect.className = "";
+		    	div.className = "active";
+		    } else {
+		        div.className = "";
+		    }
+		}
+	</script>
+</body>

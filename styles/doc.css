@@ -1,9 +1,9 @@
 #contentNewUser {
-	width: 90%;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: #444444;
-	color: white;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #444444;
+    color: white;
     max-height: 0px;
     overflow: hidden;
     /* You should prefix the following: */
@@ -65,3 +65,14 @@
     /* Depending on this value, your animatiom will seem faster or shorter */
     max-height: unset;
 }
+
+code {
+    font-family: Monaco, monospace;
+    /*font-size: $base-font-size;
+    line-height: 100%;*/
+    background-color: #eee;
+    /*padding: 1.2em;*/
+    letter-spacing: -0.05em;
+    word-break: normal;
+    border-radius: 5px;
+  }
