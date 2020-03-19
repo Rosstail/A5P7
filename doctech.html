@@ -50,7 +50,7 @@
 				<h8>FILTRES</h8><br>
 				Lorsque l'aplication doit afficher des informations à l'utilisateur, il se peut que certains filtres doient être mis en place pour éviter d'afficher des informations inutiles, mais aussi empêcher l'utilisateur d'accéder à des informations qu'il n'a pas le droit de voir en temps normal. De plus, l'utilisateur souhaite surement lui-même trouver plus facilement un certain contenu.<br>
 				<br>
-				Voici donc un exemple de filtre : celui-ci sert à afficher les projets de l'architetce référrént à celui-ci, avec potentiellement des filtres supplémentaires selon son bon vouloir.
+				Voici donc un exemple de filtre : celui-ci sert à afficher les projets de l'architecte référrént à celui-ci, avec potentiellement des filtres supplémentaires selon son bon vouloir.
 				<br>
 			</p>
 			<code>
@@ -105,6 +105,178 @@
 			    Nous vérifions le tetxe avec LIKE plutôt qu'un "=" afin de pouvoir vérifier une ressemblance et non si le texte est parfaitement égal.<br><br>
 
 			    Le même principe s'applique ensuite pour le nom de famille de l'utilisateur ainsi que le nom du projet. une fois tout cela effectué, le String est retourné et la requête aura lieu par la suite.
+			</p>
+		</div>
+		<div>
+			<p>
+				<h8>AFFICHAGE COMPORTEMENT</h8><br>
+				Afin d'être utilisable par le plus grand nombre, l'application s'affiche par le biais d'une interface graphique. L'affichage dépend des paramères de l'utilisateur, par exemple son rôle ou ses actions.<br>
+				<br>
+				Voici donc un exemple de basculement entre affichage et comportement : 
+				<br>
+			</p>
+			<p>
+				<code>
+					public class Display implements ActionListener {<br>
+					    private UpdateProfile updateProfile = new UpdateProfile();<br>
+					    private EditableTable editableTable = new EditableTable();<br>
+						<br>
+					    private JFrame window = new JFrame();<br>
+					    private JMenu accessMenu = new JMenu("Se connecter / S'enregistrer");<br>
+					    private JMenuBar cho = new JMenuBar();<br>
+					    private JMenuItem connexion = new JMenuItem("Se connecter");<br>
+					    private JMenuItem registration = new JMenuItem("S'inscrire");<br>
+					    private JButton logIn = new JButton("Connexion");<br>
+					    private JButton signUp = new JButton("Inscription");<br>
+					    private JPanel panel = new JPanel();<br>
+
+					    private Box l1 = Box.createHorizontalBox();<br>
+					    private Box l2 = Box.createHorizontalBox();<br>
+					    private Box l3 = Box.createHorizontalBox();<br>
+					    private Box l4 = Box.createHorizontalBox();<br>
+					    private Box l5 = Box.createHorizontalBox();<br>
+					    private Box c1 = Box.createVerticalBox();<br>
+					    private JButton disconnect = new JButton("Disconnect");<br>
+					    private JTextField userMailJTF = new JTextField(10);<br>
+					    private JPasswordField passWord = new JPasswordField(10);<br>
+					    private JPasswordField passWordConfirm = new JPasswordField(10);<br>
+
+					    private Connection connection;<br>
+
+					    /**<br>
+					     * Initialize the connection to the database, call for displays after<br>
+					     * @throws SQLException<br>
+					     */<br>
+					    protected void setConnection() throws SQLException {<br>
+					        connection = DriverManager.getConnection("jdbc:mysql://localhost:8889/bdd_ca_design",
+					                "anthony", "Atelier2");<br>
+					        setWindow();<br>
+					    }<br>
+						<br>
+					    JButton leave = new JButton("EXIT");<br>
+					    /**<br>
+					     * Displays the main window (Connection / logIn)<br>
+					     */<br>
+					    private void setWindow() {<br>
+					        //*** SET GENERALS INFO OF THE WINDOW ***<br>
+					        window.setTitle("CA DESIGN - HOME");<br>
+					        window.setSize(1200, 1000);<br>
+					        window.setLocationRelativeTo(null);<br>
+					        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);<br>
+					        window.setLayout(new FlowLayout());<br>
+					        //***************************************<br>
+
+					        resetWindow();<br>
+					        accessMenu.add(connexion);<br>
+					        accessMenu.add(registration);<br>
+					        connexion.addActionListener(this);<br>
+					        registration.addActionListener(this);<br>
+					        cho.add(accessMenu);<br>
+					        l1.add(cho);<br>
+					        l2.add(leave);<br>
+					        c1.add(l1);<br>
+					        c1.add(l2);<br>
+					        window.add(c1);<br>
+					        window.getContentPane().add(panel);<br>
+					        window.setVisible(true);<br>
+							<br>
+					        leave.addActionListener(new ActionListener() {<br>
+					            @Override<br>
+					            public void actionPerformed(ActionEvent e) {<br>
+					                window.dispose();<br>
+					            }<br>
+					        });<br>
+					    }<br>
+					    etc...<br>
+				</code>
+				<br>
+				Ici donc, un exemple simple et direct. La fenêtre s'affiche avec ses paramètres comme la taille de celle ci, son nom, ainsi que son contenu comme des boutons, des menus déroulants... etc.<br>
+				A ce stade, tout le code concerne l'affichage en mode tiroir: on ajoute les éléments dans des éléments plus grands et ces grands éléments dans d'encore plus grand éléments avant de faire afficher le contenu entier.<br>
+				<br>
+				Pour les affichages suivants, il est important de supprimer le contenu de la fenêtre et de vider les "tiroirs" avec une méthode dans la même classe qui sera appellée à chaque changement d'affichage majeur :<br><br>
+			</p>
+			<code>
+				/**<br>
+				     * Reset every content of the window<br>
+				     * Must be called before every display which needs lot of changes<br>
+				     */<br>
+				    private void resetWindow() {<br>
+				        //TABLE<br>
+				        if (userTableModel.getRowCount() > 0) {<br>
+				            for (int i = userTableModel.getRowCount() - 1; i > -1; i--) {<br>
+				                userTableModel.removeRow(i);<br>
+				            }<br>
+				        }<br>
+				        if (architectTableModel.getRowCount() > 0) {<br>
+				            for (int i = architectTableModel.getRowCount() - 1; i > -1; i--) {<br>
+				                architectTableModel.removeRow(i);<br>
+				            }<br>
+				        }<br>
+				        <br>
+				        //MENUS AND MENULIST<br>
+				        accessMenu.removeAll();<br>
+				        accessMenu.revalidate();<br>
+				        accessMenu.repaint();<br>
+				        cho.removeAll();<br>
+				        cho.revalidate();<br>
+				        cho.repaint();<br>
+				        <br>
+				        //JTEXT AND JPASS<br>
+				        userMailJTF.setText(null);<br>
+				        passWord.setText(null);<br>
+				        newMail.setText(null);<br>
+				        confirmPass.setText(null);<br>
+				        newPass.setText(null);<br>
+				        <br>
+				        //BOXES<br>
+				        l1.removeAll();<br>
+				        l1.revalidate();<br>
+				        l1.repaint();<br>
+				        l2.removeAll();<br>
+				        l2.revalidate();<br>
+				        l2.repaint();<br>
+				        l3.removeAll();<br>
+				        l3.revalidate();<br>
+				        l3.repaint();<br>
+				        l4.removeAll();<br>
+				        l4.revalidate();<br>
+				        l4.repaint();<br>
+				        l5.removeAll();<br>
+				        l5.revalidate();<br>
+				        l5.repaint();<br>
+				        c1.removeAll();<br>
+				        c1.revalidate();<br>
+				        c1.repaint();<br>
+				        <br>
+				        //PANEL AND WINDOW<br>
+				        panel.removeAll();<br>
+				        panel.revalidate();<br>
+				        panel.repaint();<br>
+				        window.getContentPane().removeAll();<br>
+				        window.getContentPane().revalidate();<br>
+				        window.getContentPane().repaint();<br>
+				    }<br><br>
+			</code>
+			<p>
+				Cela dit, notre classe Display implémnte un actionLIsteners, afin de permettre à l'utilisateur d'utiliser les différents objets à sa disposition pour intéragir avec l'application. Dans le code d'affichage de la première fenêtre, cet ActionListener fut implémenté :<br><br>
+			</p>
+			<code>
+				leave.addActionListener(new ActionListener() {<br>
+					@Override<br>
+					public void actionPerformed(ActionEvent e) {<br>
+					    window.dispose();<br>
+					}<br>
+				});<br><br>
+			</code>
+			<p>
+				Sur le premier écran donc, si l'utilisateur clique sur le bouton identifié "leave", le ActionListener va se déclencher et lancer le code à l'intérieur : ici ce sera 
+				<code>
+					window.dispose();</code>
+				qui sera executé, c'est à dire la fermeture de la fenêtre et donc la fin de l'éxécution de l'application.
+			</p>
+			<p>
+				L'affichage ne pouvant se faire uniquement dans la classe "Display", il est impossible de modifier les éléments depuis une autre classe ou d'appeler celle-ci.<br>
+				Cependant, l'appel de méthodes dans d'autre classes depuis les ActionsListeners présents sur les éléments affichés permet de lancer diverses méthodes de classes différentes afin de pouvoir récupérer des valeurs, comme la récupération d'un String contenant la syntaxe d'une requête SQL qui permettra de lancer cette même requête afin de faire afficher les informations liées à cette même requête.
 			</p>
 		</div>
 	</div>
