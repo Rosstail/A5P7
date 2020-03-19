@@ -1,22 +1,31 @@
 $(function() {
 
+  
+  $("#anthoPoint").click(function(){
+    percent = 0.17;
+    add_width = (percent*$('.bubbles').parent().width())+'px';
+    if ($("#anthoBubble").width() == 0) {
+      $('#anthoBubble').animate({'width': '+='+add_width}, 500);
+    }
+  })
+  $("#mathPoint").click(function(){
+    percent = 0.17;
+    add_width = (percent*$('.bubbles').parent().width())+'px';
+    if ($("#mathBubble").width() == 0) {
+      $('#mathBubble').animate({'width': '+='+add_width}, 500);
+    }
+  })
+  $("#etiPoint").click(function(){
+    percent = 0.17;
+    add_width = (percent*$('.bubbles').parent().width())+'px';
+    if ($("#etiBubble").width() == 0) {
+      $('#etiBubble').animate({'width': '+='+add_width}, 500);
+    }
+  })
+
   isVisible = false;
   isVisible2 = false;
-
-  $("#test").click(function(){
-    percent = 0.17;
-    add_width = (percent*$('.bubbles').parent().width())+'px';
-    if ($("#firstB").width() == 0) {
-      $('#firstB').animate({'width': '+='+add_width}, 500);
-    }
-  })
-  $("#test2").click(function(){
-    percent = 0.17;
-    add_width = (percent*$('.bubbles').parent().width())+'px';
-    if ($("#secondB").width() == 0) {
-      $('#secondB').animate({'width': '+='+add_width}, 500);
-    }
-  })
+  isVisible3 = false;
 
   var mX, mY, distance, distance2
   function calculateDistance(elem, mouseX, mouseY) {
@@ -26,36 +35,53 @@ $(function() {
         mX = e.pageX;
         mY = e.pageY;
         //On calcule la distance du premier élément
-        $element  = $('#test');
+        $element  = $('#anthoPoint');
         distance = calculateDistance($element, mX, mY);
         if (distance < 100 && isVisible == false) {
-          $("#test").fadeTo("fast", 1);
+          $("#anthoPoint").fadeTo("fast", 1);
           isVisible = true;
         }
         else if (distance >= 100 && isVisible == true) {
           isVisible = false;
-          $("#test").fadeTo("fast", 0.3);
+          $("#anthoPoint").fadeTo("fast", 0.1);
           $(".bubbles").stop().animate({width: 0}, 300 );
         }
         //On calcule la distance du second élément
-        $element2  = $('#test2');
+        $element2  = $('#mathPoint');
         distance2 = calculateDistance($element2, mX, mY);
         if (distance2 < 100 && isVisible2 == false) {
-          $("#test2").fadeTo("fast", 1);
+          $("#mathPoint").fadeTo("fast", 1);
           isVisible2 = true;
         }
         else if (distance2 >= 100 && isVisible2 == true) {
           isVisible2 = false;
-          $("#test2").fadeTo("fast", 0.3);
+          $("#mathPoint").fadeTo("fast", 0.1);
           $(".bubbles").stop().animate({width: 0}, 300 );
         }
-
+        //On calcule la distance du troisième élément
+        $element3  = $('#etiPoint');
+        distance3 = calculateDistance($element3, mX, mY);
+        if (distance3 < 100 && isVisible3 == false) {
+          $("#etiPoint").fadeTo("fast", 1);
+          isVisible3 = true;
+        }
+        else if (distance3 >= 100 && isVisible3 == true) {
+          isVisible3 = false;
+          $("#etiPoint").fadeTo("fast", 0.1);
+          $(".bubbles").stop().animate({width: 0}, 300 );
+        }
     });
-    $("#showGroupe").click(function(){
-      $("#conteneur_img_groupe").slideToggle(1000);
+
+    $("#showProject").click(function(){
+      $("#contentProject").slideToggle(1000);
     })
-    $("#showTxtProjet").click(function(){
-      $("#conteneur_txt_projet").slideToggle(1000);
+
+    $("#showTeam").click(function(){
+      $("#contentTeam").slideToggle(1000);
+    })
+
+    $("#showETC").click(function(){
+      $("#contentETC").slideToggle(1000);
     })
 
 });

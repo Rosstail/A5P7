@@ -4,7 +4,7 @@ html {
 
 body {
 	margin: 0;
-	background-color: #adadad;
+	background-color: #aaa;
 
 }
 
@@ -141,7 +141,7 @@ header .header-buttons #navbar a:hover {
 h1 {
 	text-shadow: 1px 1px 10px red;
 	font-weight: bolder;
-	font-size: 7vw;
+	font-size: 6vw;
 	color: white;
 	text-align: center;
 }
@@ -162,6 +162,7 @@ h1 {
 	border-bottom-width: 3px;
 	font-size: 20;
 	font-weight: bold;
+	transition-duration: 0.5s;
 }
 
 .category button:hover {
@@ -172,60 +173,107 @@ h1 {
 }
 
 #contentProject {
+	display: none;
 	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #444444;
 	color: white;
-    max-height: 0px;
     overflow: hidden;
-    /* You should prefix the following: */
-    transition: max-height 1000ms;
-}
-
-#contentProject.active {
-    /* Depending on this value, your animatiom will seem faster or shorter */
-    max-height: unset;
 }
 
 #contentTeam {
+	display: none;
 	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #444444;
 	color: white;
-    max-height: 0px;
     overflow: hidden;
-    /* You should prefix the following: */
-    transition: max-height 1000ms;
-}
-
-#contentTeam.active {
-    /* Depending on this value, your animatiom will seem faster or shorter */
-    max-height: unset;
 }
 
 #contentETC {
+	display: none;
 	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #444444;
 	color: white;
-    max-height: 0px;
     overflow: hidden;
-    /* You should prefix the following: */
-    transition: max-height 1000ms;
 }
 
-#contentETC.active {
-    /* Depending on this value, your animatiom will seem faster or shorter */
-    max-height: unset;
-}
 
 .sub-content {
 	width: 80%;
+	padding: 15px 0px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+#pics {
+	position: relative;
+	display: flex;
+	justify-content: space-around;
+}
+
+.pointer {
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background-color: red;
+	opacity: 0.1;
+	cursor: pointer;
+}
+
+.bubbles {
+	position: absolute;
+	width:0;
+}
+
+#anthoBubble {
+	bottom: 50%;
+	left:20%;
+}
+
+#anthoPoint {
+	bottom: 65%;
+	right: 85%;
+}
+
+#mathBubble {
+	bottom: 30%;
+	left: 32%;
+}
+
+#mathPoint {
+	bottom: 60%;
+	right: 47%;
+}
+
+#etiPoint {
+	bottom: 63%;
+	right: 15%;
+}
+
+#etiBubble {
+	bottom: 40%;
+	right:20%;
+}
+
+#Bubble {
+	bottom: 60%;
+	right: 20%;
+}
+
+.portrait {
+	width: 30%;
+	border-radius: 50%;
+	border: solid black 3px;
+}
+
+#test {
+	color:red;
 }
 
 .to-header-div {
@@ -256,7 +304,6 @@ h1 {
 }
 
 .to-header:hover {
-	/*color: #7F7F7F;*/
 	font-weight: bolder;
 }
 

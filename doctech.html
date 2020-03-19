@@ -1,7 +1,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>TITRE DE LA PAGE</title>
+	<title>DOCUMENATTION TECHNIQUE</title>
 	<meta name="language" content="fr">
 	<meta name="description" content="DESCRIPTION DE LA PAGE.">
 	<meta name="keywords" content="keyword1, keyword2, keyword3" lang="fr">
@@ -16,12 +16,12 @@
 		<div id="up-page">
 			<div class="header-buttons">
 				<div id="logo">
-					<a href="accueil.html"><img src="https://www.dotemu.com/wp-content/uploads/2018/02/logo.png"></a>
+					<a href="accueil.html"><img style="height: 3vw" src="https://static1.squarespace.com/static/59f0de346957da078de340e3/t/5be9824d032be4540ec984d1/1542029902989/CA_PRIMARY_LOGO.png?format=1500w"></a>
 				</div>
 				<div id="navbar">
 					<a href="accueil.html">ACCUEIL</a>
 					<a href="doc.html">DOCUMENTATION</a>
-					<a href="">SAMPLE TEXT</a>
+					<a href="doctech.html">DOC TECHNIQUE</a>
 				</div>
 				<div class="dropdown">
 					<button onclick="myFunction(event)" class="dropbtn">
@@ -31,7 +31,7 @@
 					<div id="myDropdown" class="dropdown-content">
 						<a href="accueil.html">Accueil</a>
 						<a href="doc.html">Documentation</a>
-						<a href="#contact">Sample text</a>
+						<a href="doctech.html">Doc technique</a>
 					</div>
 				</div>
 			</div>
@@ -41,13 +41,13 @@
 		</div>
 	</header>
 
-	<div>
-		<div class="category">
-			<button>DOC TECHNIQUE</button>
-		</div>
+	<div class="category">
+		<button>DOC TECHNIQUE</button>
+	</div>
+	<div style="margin-left: 20px; margin-right: 20px;">
 		<div>
 			<p>
-				<h8>FILTRES</h8><br>
+				<h2>FILTRES</h2><br>
 				Lorsque l'aplication doit afficher des informations à l'utilisateur, il se peut que certains filtres doient être mis en place pour éviter d'afficher des informations inutiles, mais aussi empêcher l'utilisateur d'accéder à des informations qu'il n'a pas le droit de voir en temps normal. De plus, l'utilisateur souhaite surement lui-même trouver plus facilement un certain contenu.<br>
 				<br>
 				Voici donc un exemple de filtre : celui-ci sert à afficher les projets de l'architecte référrént à celui-ci, avec potentiellement des filtres supplémentaires selon son bon vouloir.
@@ -111,7 +111,7 @@ if (userFirstName.getText().length() >= 3)
 		</div>
 		<div>
 			<p>
-				<h8>AFFICHAGE COMPORTEMENT</h8><br>
+				<h2>AFFICHAGE COMPORTEMENT</h2><br>
 				Afin d'être utilisable par le plus grand nombre, l'application s'affiche par le biais d'une interface graphique. L'affichage dépend des paramères de l'utilisateur, par exemple son rôle ou ses actions.<br>
 				<br>
 				Voici donc un exemple de basculement entre affichage et comportement : 
@@ -282,6 +282,131 @@ leave.addActionListener(new ActionListener() {
 				Cependant, l'appel de méthodes dans d'autre classes depuis les ActionsListeners présents sur les éléments affichés permet de lancer diverses méthodes de classes différentes afin de pouvoir récupérer des valeurs, comme la récupération d'un String contenant la syntaxe d'une requête SQL qui permettra de lancer cette même requête afin de faire afficher les informations liées à cette même requête.
 			</p>
 		</div>
+	<div id=#maDoc>
+	<h2>Documentation technique de la liaison JTable/BDD</h2>
+	<p>Notre application permet de modifier directement la base de donnée à travers un tableau affichant ses informations</p>
+	<div class="conteneurImgs">
+		<img src="img/modifTable1.png">
+		<img src="img/modifTable2.png">
+		<img src="img/modifTable3.png">
+	</div>
+	<p>Pour ce faire, nous créons pour commencer notre JTable qui vont afficher les informations de la BDD, ici on veut gérer les utilisateurs en tant qu'admin</p>
+	<div class = "conteneurCode">
+	<pre><code>
+		String[] entetes = {"id", "name", "firstname", "mail", "password", "role", "signdatetime"}; <span style="color:grey">//Ici, nous créons le nom des colonnes de notre tableau</span>
+    		JTable table = new JTable(); <span style="color:grey">//On créer un objet de type JTable</span>
+    		DefaultTableModel aModel = (DefaultTableModel) table.getModel(); <span style="color:grey">//Nous créons ensuite un modèle de tableau, c'est grâce à lui que nous allons le peupler</span>
+    		aModel.setColumnIdentifiers(entetes); <span style="color:grey">//On lui attribue les entêtes crées</span>
+    		JScrollPane jsp = new JScrollPane(table);
+    		Dimension dimension = new Dimension(750, 300);
+    		jsp.setPreferredSize(dimension);
+    		window.add(jsp); <span style="color:grey">//On ajoute un conteneur scrollable d'une certaine dimension dans lequel on affichera le tableau</span>
+	</code></pre>
+	</div>
+	<div class="conteneurCode">
+	<pre><code>
+		String request = requestText; <span style="color:grey">//On récupère la requête en paramêtre de la fonction, ici la requête va SELECT * la table users</span>
+        		try {
+            		Statement statement = connection.createStatement(); <span style="color:grey">//On se connecte à la base de donnée</span>
+            		ResultSet results = statement.executeQuery(request); <span style="color:grey">//On exécute la requête et on stocke les données dans la variable results</span>
+            		ResultSetMetaData meta = results.getMetaData(); <span style="color:grey">//Ici, on récupère et on stocke les méta données</span>
+            		int colCount = meta.getColumnCount(); <span style="color:grey">//On stocke le nombre de colonnes dans une variable colCount</span>
+            		while (results.next()) { <span style="color:grey">//Tant qu'on n'est pas à la fin des données</span>
+                		Object[] objects = new Object[colCount];
+                		for(int i = 0; i < colCount; i++) {
+                    		objects[i] = results.getObject(i+1);
+                		} <span style="color:grey">//On créer des nouveaux tableaux d'objets dans lesquels on stocke chaque ligne du tableau de la BDD</span>
+                  aModel.addRow(objects); <span style="color:grey">//On ajoute les différentes ligne à notre modèle</span>
+            	}
+                 table.setModel(aModel); <span style="color:grey">//On peuple notre JTable grâce à ce modèle</span>
+       			} catch (SQLException e) {
+            		e.printStackTrace();
+        		}
+	</code></pre>
+	</div>
+	<p>Nous voulons récupérer les données de notre JTable qui changent et les envoyer à la BDD pour la modifier du même coup. Pour détecter si les données du JTable sont modifées, nous allons ajouter un listener sur son modèle comme suit :</p>
+	<div class="conteneurCode">
+		<pre><code>
+			aModel.addTableModelListener(new TableModelListener() { <span style="color:grey">//On ajoute le listener au modèle</span><br>
+            	@Override<br>
+            	public void tableChanged(TableModelEvent tableModelEvent) { editableTable.editUsers(tableModelEvent, table, connection); } <span style="color:grey">//Chaque fois que le modèle change, les changements seront envoyés à la méthode editUsers de la classe editableTable</span><br>
+        	});<br>
+		</code></pre>
+	</div>
+	<p>Nous avons maintenant récupérer les modifications faites sur notre JTable, nous devons maintenant les transmettre à la BDD pour qu'elle se mette à jour à l'aide de la méthode editUsers pour la table "users"</p>
+	<div class="conteneurCode">
+		<pre><code>
+			public void editUsers(TableModelEvent t, JTable table, Connection connection) {<br>
+        		if (t.getType() == TableModelEvent.UPDATE) { <span style="color:grey">//Si le changement qui a eu lieu est de type "update" c'est à dire si on a modifié le modèle</span><br>
+            		int row = t.getFirstRow();<br>
+            		int column = t.getColumn(); <span style="color:grey">//On récupère les coordonnées du changement</span><br>
+            		String newValue = (String)table.getValueAt(row, column); <span style="color:grey">//On récupère la nouvelle valeur</span><br>
+            		Object id = table.getValueAt(row, 0); <span style="color:grey">//On récupère l'id de la ligne où le changement a eu lieu</span><br>
+            		String request = "SELECT * FROM users WHERE user_id = "+id; <span style="color:grey">//On créer la requête pour récupérer les données de la ligne en question</span><br>
+		</code></pre>
+	</div>
+	<div class="conteneurCode">
+		<pre><code>
+			try {<br>
+                Statement statement = connection.createStatement(); <span style="color:grey">//On établit la connexion</span><br>
+                ResultSet results = statement.executeQuery(request);<br>
+                ResultSetMetaData rsmd = results.getMetaData(); <span style="color:grey">//On éxécute la requête créée précédemment et on la stocke</span><br>
+                String columnToEdit = rsmd.getColumnName(column+1); <span style="color:grey">//On récupère la colonne à éditer</span><br>
+                String update = "UPDATE users SET "+columnToEdit+" = '"+newValue+"' WHERE user_id = "+id; <span style="color:grey">//On créer la requête pour éditer la BDD</span><br>
+                System.out.println(update);<br>
+                statement.executeUpdate(update); <span style="color:grey">//On éxécute la requête d'édition</span><br>
+            } catch (SQLException e) {<br>
+                e.printStackTrace();<br>
+            }<br>
+		</code></pre>
+	</div>
+	<h3>Nous avons donc réussi à éditer la base de donnée en direct grâce à notre Jtable !</h3>
+	<h2>Stockage des infos utilisateur (pseudo, password...) dans un fichier INI</h2>
+	<p>Nous allons voir comment procéder à la récupération des informations de l'utilisateur courant et les stocker dans un fichier INI</p>
+	<p>Lors d'une connexion, un bouton à cocher est présent à la droite du bouton de connexion. Coché par l'utilisateur, il permettra de préremplir automatiquement les champs de texte</p>
+	<div class="conteneurImgs">
+		<img src="img/Ini1.png">
+		<img src="img/Ini2.png">
+	</div>
+	<p>Lors de la connexion de l'utilisateur, on vérifie s'il a coché la case "Remember my informations"</p>
+	<p>S'il l'a fait et que la connexion a réussi, on procède à la création d'un fichier d'informations INI</p>
+	<pre><code>
+		 static void creation(JTextField mail, JTextField passWord, JCheckBox checkBox) {<br>
+        try {<br>
+            if (checkBox.isSelected()) { <span style="color:grey">//On vérifie que la case "Remember my informations"</span><br>
+                File file = new File("infosCo.ini");<br>
+                file.createNewFile(); <span style="color:grey">//Si c'est le cas, on créer le fichier "infosCo.ini"</span><br>
+                Wini ini = new Wini(file); <span style="color:grey">//On utilise la bibliothèque ini4j pour manipuler le fichier .ini</span><br>
+                ini.put("InfosCo", "mail", mail.getText());<br>
+                ini.put("InfosCo", "password", passWord.getText());<br>
+                ini.store(); <span style="color:grey">//On stocke les informations des champs de connexion dans le fichier, le mail dans la section "mail", le password dans la section "password"</span><br>
+            }<br>
+        } catch (IOException e) {<br>
+            e.printStackTrace();<br>
+        }<br>
+    }<br>
+	</code></pre>	
+	<img src="img/Ini3.png">
+	<p>Voici le fichier créer et les informations stockées dedans</p>
+	<p>Nous voulons maintenant, lorsque l'écran d'accueil est chargé que les champs de texte soient préremplis avec les informations contenues dans le fichier Ini</p>
+	<pre><code>
+		public void check(JTextField user, JTextField passWord) {<br>
+        	File file = new File("infosCo.ini");<br>
+        	if (file.exists()) { <span style="color:grey">//On vérifie si le fichier Ini existe déjà</span><br>
+            	try {<br>
+                	Wini ini = new Wini(file);<br>
+                	String stringMail = ini.get("InfosCo", "mail");<br>
+                	String stringPassWord = ini.get("InfosCo", "password");  <span style="color:grey">//Si oui, on récupère les informations à la section "mail" et "password"</span><br>
+                	user.setText(stringMail);<br>
+                	passWord.setText(stringPassWord); <span style="color:grey">//Avec; on remplit les champs de texte du pseudo et du password pris en paramètre</span><br>
+            	} catch (IOException e) {<br>
+               		e.printStackTrace();<br>
+            	}<br>
+        	}<br>
+    	}<br>
+	</code></pre>
+	<h3>Et voilà, nos champs de connexion sont désormais préremplis lors du chargement de la fenêtre !</h3>
+	</div>
 	</div>
 	<!-- Footer / credits -  -->
 	<footer>

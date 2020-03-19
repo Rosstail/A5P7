@@ -1,59 +1,91 @@
+<!DOCTYPE HTML>
+<html lang="fr">
 
 <head>
-	<meta charset="utf-8" />
-	<title>TITRE DE LA PAGE</title>
-	<meta name="language" content="fr">
-	<meta name="description" content="DESCRIPTION DE LA PAGE.">
-	<meta name="keywords" content="keyword1, keyword2, keyword3" lang="fr">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<link rel="stylesheet" href="styles/style.css">
+  <meta charset="utf-8" />
+  <title>CONTACT</title>
+  <meta name="language" content="fr">
+  <meta name="description" content="DESCRIPTION DE LA PAGE.">
+  <meta name="keywords" content="keyword1, keyword2, keyword3" lang="fr">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/contact.css">
 </head>
+
 <body>
-	<header>
-		<div id="up-page">
-			<div class="header-buttons">
-				<div id="logo">
-					<a href="accueil.html"><img src="https://www.dotemu.com/wp-content/uploads/2018/02/logo.png"></a>
-				</div>
-				<div id="navbar">
-					<a href="accueil.html">ACCUEIL</a>
-					<a href="doc.html">DOCUMENTATION</a>
-					<a href="">SAMPLE TEXT</a>
-				</div>
-			</div>
-		</div>
-	</header>
+  <header>
+    <div id="up-page">
+      <div class="header-buttons">
+        <div id="logo">
+          <a href="accueil.html"><img style="height: 3vw" src="https://static1.squarespace.com/static/59f0de346957da078de340e3/t/5be9824d032be4540ec984d1/1542029902989/CA_PRIMARY_LOGO.png?format=1500w"></a>
+        </div>
+        <div id="navbar">
+          <a href="accueil.html">ACCUEIL</a>
+          <a href="doc.html">DOCUMENTATION</a>
+          <a href="doctech.html">DOC TECHNIQUE</a>
+        </div>
+        <div class="dropdown">
+          <button onclick="myFunction(event)" class="dropbtn">
+            MENU
+            <i class="fas fa-bars"></i>
+          </button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="accueil.html">Accueil</a>
+            <a href="doc.html">Documentation</a>
+            <a href="doctech.html">Doc technique</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <img style="width: 100%" src="https://d32ogoqmya1dw8.cloudfront.net/images/integrate/teaching_materials/global_energy/earths_thermostat_banner_3.jpg">
+    </div>
+  </header>
 
-	<div style="width: 60%; margin-left: auto; margin-right: auto; margin-top: 90px; background-color: white; padding: 9px;">
-		<div style="display: flex;">
-			<p>Adresse mail :</p>
-			<textarea rows="1" style="width: 50%"></textarea>
-		</div>
-		<div style="display: flex;">
-			<p>Objet :</p>
-			<textarea rows="1"></textarea>
-		</div>
-		<div style="margin-left: auto; margin-right: auto; text-align: center;">
-			<textarea style="width: 70%; min-height: 200px;">Bonjour !</textarea>
-		</div>
-		<div style="text-align: center; margin-top: 10px;">
-			<button>ENVOYER</button>
-		</div>
-	</div>
+  <p>
+    <br><br><br><br>
+  </br>
+  </p>
 
-	<a href="#up-page">
-		<div class="to-header-div">
-			<div class="to-header">
-				REMONTER
-			</div>
-		</div>
-	</a>
+  <div id="formulaire">
+    <?php include('formulaire.php'); ?>
+    <form action="formulaire.php" method="post">
+      <div>
+        <label for="surname">Nom :</label>
+        <input type="text" id="surname" name="user_surname">
+      </div>
+      <div>
+        <label for="name">Prénom :</label>
+        <input type="text" id="name" name="user_name">
+      </div>
+      <div>
+        <label for="mail">E-mail :</label>
+        <input type="email" id="mail" name="user_mail">
+      </div>
+      <div>
+        <label for="object">Objet :</label>
+        <input type="text" id="object" name="user_object">
+      </div>
+      <div>
+        <label for="msg">Message :</label>
+        <textarea id="msg" name="user_message"></textarea>
+      </div>
+      <div class="button">
+        <button type="submit" name="submit">Envoyer</button>
+      </div>
+    </form>
+  </div>
 
-	<footer style="margin-bottom: 0px;">
-		<div class="low-foot">
-			<div><a href="">©2020 Tous droits réservés</a></div>
-			<div><a href="contact.html">Contact</a></div>
-		</div>
-	</footer>
+<p>
+  <br><br><br><br><br>
+</br>
+</p>
+  <footer>
+    <div class="low-foot">
+      <div><a href="">©2020 Tous droits réservés</a></div>
+      <div><a href="">Contact</a></div>
+    </div>
+  </footer>
 
 </body>
+</html>

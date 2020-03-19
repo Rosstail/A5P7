@@ -1,26 +1,26 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>TITRE DE LA PAGE</title>
+	<title>ACCUEIL</title>
 	<meta name="language" content="fr">
 	<meta name="description" content="DESCRIPTION DE LA PAGE.">
 	<meta name="keywords" content="keyword1, keyword2, keyword3" lang="fr">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="styles/style.css">
-	<script src="https://kit.fontawesome.com/a076d05399.js"></script>	
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
 	<header>
 		<div id="up-page">
 			<div class="header-buttons">
 				<div id="logo">
-					<a href="accueil.html"><img src="https://www.dotemu.com/wp-content/uploads/2018/02/logo.png"></a>
+					<a href="accueil.html"><img style="height: 3vw" src="https://static1.squarespace.com/static/59f0de346957da078de340e3/t/5be9824d032be4540ec984d1/1542029902989/CA_PRIMARY_LOGO.png?format=1500w">
 				</div>
 				<div id="navbar">
 					<a href="accueil.html">ACCUEIL</a>
 					<a href="doc.html">DOCUMENTATION</a>
-					<a href="">SAMPLE TEXT</a>
+					<a href="doctech.html">DOC TECHNIQUE</a>
 				</div>
 				<div class="dropdown">
 					<button onclick="myFunction(event)" class="dropbtn">
@@ -30,7 +30,7 @@
 					<div id="myDropdown" class="dropdown-content">
 						<a href="accueil.html">Accueil</a>
 						<a href="doc.html">Documentation</a>
-						<a href="#contact">Sample text</a>
+						<a href="doctech.html">Doc technique</a>
 					</div>
 				</div>
 			</div>
@@ -38,13 +38,13 @@
 				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 				    <div class="carousel-inner">
 				    	<div class="carousel-item active">
-			        		<img src="http://fullhdwall.com/wp-content/uploads/2018/11/HD-1080p-Background.jpg" class="d-block w-100" alt="111">
+			        		<img src="https://www.francedubai2020.com/sites/default/files/styles/1920x1080/public/visuels/2019-11/20191030_maj_image_pavillon_nuit_bleu.jpg?h=4791a88f&itok=lqx8btid" class="d-block w-100" alt="111">
 			      		</div>
 				      	<div class="carousel-item">
-				        	<img src="https://wallpaperset.com/w/full/2/5/9/172333.jpg" class="d-block w-100" alt="222">
+				        	<img src="https://files.slack.com/files-pri/T726WFSNA-F010CTVN1AR/2.jpg" class="d-block w-100" alt="222">
 				      	</div>
 				      	<div class="carousel-item">
-				      		<img src="https://i.pinimg.com/originals/31/9d/ce/319dce67ea7e656296d9334040a9b991.jpg" class="d-block w-100" alt="333">
+				      		<img src="https://files.slack.com/files-pri/T726WFSNA-F010F43D1HU/1.jpg" class="d-block w-100" alt="333">
 				      	</div>
 				    </div>
 				    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -66,52 +66,102 @@
 					    </div>
 				    </div>
 				</div>
-				<!--On implémente le js de bootstrap-->
-				<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-				<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-				<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 			</div>
 		</div>
 	</header>
 
 	<div>
 		<div class="category">
-			<button onclick="showHideProject()">NOTRE PROJET</button>
+			<button id="showProject">NOTRE PROJET</button>
 		</div>
 		<div id="contentProject">
 			<div class="sub-content">
 				<p>
-					Le projet CA DESIGN a pour but de fournir une interface facile d'utilisation aux entreprises afin que les utilisateurs puissent baiser Zelda
+					Conçu pour le métier d'architecte, l'application <strong>CA-Design</strong> permet de gérer le statut des employés et de ses clients, ainsi
+					que les projets effectués.
+					<br>
+					<br>
+					Elle permettra de :
+					<ul>
+						<li>Consulter l'avancement du projet</li>
+						<li>Avoir des informations détaillées sur le projet (évolution du prix, argent perçu, temps passés sur
+						un projet, coût pour le client)</li>
+						<li>Discuter entre architectes sur une conversation globale autour d'un projet</li>
+						<li>Echanger avec le client dans une messagerie privé</li>
+					</ul>
 				</p>
 			</div>
 		</div>
 
 		<div class="category">
-			<button onclick="showHideTeam()">L'ÉQUIPE</button>
+			<button id="showTeam">L'ÉQUIPE</button>
 		</div>
 		<div id="contentTeam">
 			<div class="sub-content">
-				<p>
-					Notre équipe est composée de trois imbéciles !<br>
-
-					Anthony BAC<br>
-
-					Etienne Buronfosse<br>
-
-					Mattieu Rakotofiringa<br>
-				</p>
+				<p>Notre équipe, composée de 3 codeurs pleins de talent et d'avenir :</p>
+				<div id="pics">
+					<img class = bubbles id="anthoBubble" src="img/anthoBubble.png">
+					<div class="pointer" id="anthoPoint"></div>
+					<img class = bubbles id="mathBubble" src="img/mathBubble.png">
+					<div class="pointer" id="mathPoint"></div>
+					<img class = bubbles id="etiBubble" src="img/etiBubble.png">
+					<div class="pointer" id="etiPoint"></div>
+					<img src="img/1.jpg" class="portrait">
+					<img src="img/2.png" class="portrait">
+					<img src="img/3.jpg" class="portrait">
+				</div>
 			</div>
 		</div>
 		<div class="category">
-			<button onclick="showHideETC()">GESTION DU PROJET</button>
+			<button id="showETC">ETC</button>
 		</div>
 		<div id="contentETC">
 			<div class="sub-content">
+				<br>
+				<img src="img/Agile-min.jpg" alt="Méthod Agile/Scrum" style="height: 70%; width: 100%;">
+				<br>
 				<p>
-					Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. 
-
-					Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+					Pour la réalisation de ce projet, la méthode Agile/Scrum prenait une place prépondérante dans notre façon de travailler.
+					Cela nous a permis de :
+					<ul>
+						<li>Mieux répartir les tâches</li>
+						<li>Une meilleure organisation</li>
+						<li>Gagner du temps</li>
+					</ul>
 				</p>
+				<br>
+				<img src="img/scrum.png" alt="Board" style="height: 70%; width: 100%;">
+				<br>
+				<p>
+					<strong>APPLICATION DE LA METHODE AGILE/SCRUM</strong>
+				</p>
+					<ol>
+						<li>Réalisation du board</li>
+						<li>Création des stories, critères d'acceptation, to do, etc...</li>
+						<li>Répartition des tâches après la création du board, tout en respectant l'ordre des tâches
+						 à réaliser dans la conception du projet</li>
+					</ol>
+				<br>
+				<img src="img/rea-projet.jpg" alt="Project" style="height: 80%; width: 100%;">
+				<br>
+				<p>
+					<strong>PENDANT LA REALISATION DU PROJET</strong>
+				</p>
+				<ul>
+					<li>Se mettre au courant chaque 1h</li>
+					<li>Récapitulation des tâches faits et à faire pour le lendemain</li>
+					<li>Stand-up meeting en début d'heure de cours</li>
+				</ul>
+				<br>
+				<img src="img/fin-projet.jpg" alt="End of the project" style="height: 70%; width: 100%;">
+				<br>
+				<p>
+					<strong>A LA FIN DU PROJET</strong>
+				</p>
+				<ul>
+					<li>Vérifier que chaque stories ont bien été réalisées en regardant le board et le projet qui était à
+					réaliser</li>
+				</ul>
 			</div>
 		</div>
 
@@ -133,9 +183,9 @@
 	</footer>
 
 	<script>
-		/* When the user clicks on the button, 
+		/* When the user clicks on the button,
 		toggle between hiding and showing the dropdown content */
-		function myFunction(event) {
+		/*function myFunction(event) {
 			event.stopPropagation();
 			document.getElementById("myDropdown").classList.toggle("show");
 		}
@@ -179,7 +229,13 @@
 		    } else {
 		        div.className = "";
 		    }
-		}
+		}*/
 	</script>
 	<!--<script type="text/javascript" src="scripts/JQ.js"></script>-->
+	<!--On implémente le js de bootstrap-->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts/JQ.js"></script>
 </body>
