@@ -53,33 +53,35 @@
 				Voici donc un exemple de filtre : celui-ci sert à afficher les projets de l'architecte référrént à celui-ci, avec potentiellement des filtres supplémentaires selon son bon vouloir.
 				<br>
 			</p>
-			<code>
-			    public String architectProjectFilter(JTextField userName, JTextField userFirstName, JTextField projectName) {<br>
-					String request = "SELECT A.architect_id, U.user_firstname, U.user_name, P.project_name, A.architect_assigned_datetime\n" +<br>
-			                "FROM architects AS A, users AS U, projects AS P " +
-			                "WHERE U.user_id = A.architect_id AND P.project_id = A.architect_project_id";<br>
-			        if (userFirstName.getText().length() >= 3)<br>
-			            request = request + " AND U.user_firstname LIKE '" + userFirstName.getText() + "%'";<br>
-			        if (userName.getText().length() >= 3)<br>
-			            request = request + " AND U.user_name LIKE '" + userName.getText() + "%'";<br>
-			        if (projectName.getText().length() >= 3)<br>
-			            request = request + " AND P.project_name LIKE '" + projectName.getText() + "%'";<br>
-			        System.out.println(request);<br>
-					<br>
-			        return request;<br>
-			    }<br><br>
-			</code>
+			<pre><code>
+public String architectProjectFilter(JTextField userName, JTextField userFirstName, JTextField projectName) {
+	String request = "SELECT A.architect_id, U.user_firstname, U.user_name, P.project_name, A.architect_assigned_datetime\n" +
+            "FROM architects AS A, users AS U, projects AS P " +
+            "WHERE U.user_id = A.architect_id AND P.project_id = A.architect_project_id";
+    if (userFirstName.getText().length() >= 3)
+        request = request + " AND U.user_firstname LIKE '" + userFirstName.getText() + "%'";
+    if (userName.getText().length() >= 3)
+        request = request + " AND U.user_name LIKE '" + userName.getText() + "%'";
+    if (projectName.getText().length() >= 3)
+        request = request + " AND P.project_name LIKE '" + projectName.getText() + "%'";
+    System.out.println(request);
+	
+    return request;
+}
+			</code></pre>
 			<p>
-				<code>
-					public String architectProjectFilter(JTextField userName, JTextField userFirstName, JTextField projectName) {<br>
-				</code>
+				<pre><code>
+public String architectProjectFilter(JTextField userName, JTextField userFirstName, JTextField projectName) {
+				</code></pre>
 				<br>
+
 				Il s'agit de a fonction appellée avant de faire la requête, étant donné que le filtre retourne une requête SQL sous forme de String.<br><br>
-				<code>
-					String request = "SELECT A.architect_id, U.user_firstname, U.user_name, P.project_name, A.architect_assigned_datetime\n" +<br>
-			                "FROM architects AS A, users AS U, projects AS P " +<br>
-			                "WHERE U.user_id = A.architect_id AND P.project_id = A.architect_project_id";<br>
-			    </code>
+
+				<pre><code>
+String request = "SELECT A.architect_id, U.user_firstname, U.user_name, P.project_name, A.architect_assigned_datetime\n" +
+"FROM architects AS A, users AS U, projects AS P " +
+"WHERE U.user_id = A.architect_id AND P.project_id = A.architect_project_id";
+			    </code></pre>
 
 			    Voici donc le filtre par défaut: il s'agit donc du filtre de permission: <br>
 			    <li>Dans SELECT</li> tout ce qui est séparé par des "," sont les collones des tables de la base de donnée qui seront affichées. Leur syntaxe est la suivante : [Alias].[Column].<br>
@@ -93,10 +95,10 @@
 
 			    Maintenant que le filtre de permission est terminé, il reste à appliquer les filtres supplémentaires si l'utilisateur le désire : tous se basent sur le même principe.<br>
 
-			    <code>
-			        if (userFirstName.getText().length() >= 3)<br>
-			            request = request + " AND U.user_firstname LIKE '" + userFirstName.getText() + "%'";<br>
-			    </code>
+			    <pre><code>
+if (userFirstName.getText().length() >= 3)
+	request = request + " AND U.user_firstname LIKE '" + userFirstName.getText() + "%'";
+			    </code></pre>
 
 			    <li>Dans le IF</li>, nbous vérifions que le champs de texte que l'utilisateur a rempli précédemment contienne au moins 3 caractères: sinon, le filtre n'a pas lieu d'être et nous passons à la prochaine vérification OU au return.
 
@@ -116,162 +118,163 @@
 				<br>
 			</p>
 			<p>
-				<code>
-					public class Display implements ActionListener {<br>
-					    private UpdateProfile updateProfile = new UpdateProfile();<br>
-					    private EditableTable editableTable = new EditableTable();<br>
-						<br>
-					    private JFrame window = new JFrame();<br>
-					    private JMenu accessMenu = new JMenu("Se connecter / S'enregistrer");<br>
-					    private JMenuBar cho = new JMenuBar();<br>
-					    private JMenuItem connexion = new JMenuItem("Se connecter");<br>
-					    private JMenuItem registration = new JMenuItem("S'inscrire");<br>
-					    private JButton logIn = new JButton("Connexion");<br>
-					    private JButton signUp = new JButton("Inscription");<br>
-					    private JPanel panel = new JPanel();<br>
+				<pre><code>
+public class Display implements ActionListener {
+    private UpdateProfile updateProfile = new UpdateProfile();
+    private EditableTable editableTable = new EditableTable();
+	
+    private JFrame window = new JFrame();
+    private JMenu accessMenu = new JMenu("Se connecter / S'enregistrer");
+    private JMenuBar cho = new JMenuBar();
+    private JMenuItem connexion = new JMenuItem("Se connecter");
+    private JMenuItem registration = new JMenuItem("S'inscrire");
+    private JButton logIn = new JButton("Connexion");
+    private JButton signUp = new JButton("Inscription");
+    private JPanel panel = new JPanel();
 
-					    private Box l1 = Box.createHorizontalBox();<br>
-					    private Box l2 = Box.createHorizontalBox();<br>
-					    private Box l3 = Box.createHorizontalBox();<br>
-					    private Box l4 = Box.createHorizontalBox();<br>
-					    private Box l5 = Box.createHorizontalBox();<br>
-					    private Box c1 = Box.createVerticalBox();<br>
-					    private JButton disconnect = new JButton("Disconnect");<br>
-					    private JTextField userMailJTF = new JTextField(10);<br>
-					    private JPasswordField passWord = new JPasswordField(10);<br>
-					    private JPasswordField passWordConfirm = new JPasswordField(10);<br>
+    private Box l1 = Box.createHorizontalBox();
+    private Box l2 = Box.createHorizontalBox();
+    private Box l3 = Box.createHorizontalBox();
+    private Box l4 = Box.createHorizontalBox();
+    private Box l5 = Box.createHorizontalBox();
+    private Box c1 = Box.createVerticalBox();
+    private JButton disconnect = new JButton("Disconnect");
+    private JTextField userMailJTF = new JTextField(10);
+    private JPasswordField passWord = new JPasswordField(10);
+    private JPasswordField passWordConfirm = new JPasswordField(10);
 
-					    private Connection connection;<br>
+    private Connection connection;
 
-					    /**<br>
-					     * Initialize the connection to the database, call for displays after<br>
-					     * @throws SQLException<br>
-					     */<br>
-					    protected void setConnection() throws SQLException {<br>
-					        connection = DriverManager.getConnection("jdbc:mysql://localhost:8889/bdd_ca_design",
-					                "anthony", "Atelier2");<br>
-					        setWindow();<br>
-					    }<br>
-						<br>
-					    JButton leave = new JButton("EXIT");<br>
-					    /**<br>
-					     * Displays the main window (Connection / logIn)<br>
-					     */<br>
-					    private void setWindow() {<br>
-					        //*** SET GENERALS INFO OF THE WINDOW ***<br>
-					        window.setTitle("CA DESIGN - HOME");<br>
-					        window.setSize(1200, 1000);<br>
-					        window.setLocationRelativeTo(null);<br>
-					        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);<br>
-					        window.setLayout(new FlowLayout());<br>
-					        //***************************************<br>
+    /**
+     * Initialize the connection to the database, call for displays after
+     * @throws SQLException
+     */
+    protected void setConnection() throws SQLException {
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:8889/bdd_ca_design",
+                "anthony", "Atelier2");
+        setWindow();
+    }
+	
+    JButton leave = new JButton("EXIT");
+    /**
+     * Displays the main window (Connection / logIn)
+     */
+    private void setWindow() {
+        //*** SET GENERALS INFO OF THE WINDOW ***
+        window.setTitle("CA DESIGN - HOME");
+        window.setSize(1200, 1000);
+        window.setLocationRelativeTo(null);
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setLayout(new FlowLayout());
+        //***************************************
 
-					        resetWindow();<br>
-					        accessMenu.add(connexion);<br>
-					        accessMenu.add(registration);<br>
-					        connexion.addActionListener(this);<br>
-					        registration.addActionListener(this);<br>
-					        cho.add(accessMenu);<br>
-					        l1.add(cho);<br>
-					        l2.add(leave);<br>
-					        c1.add(l1);<br>
-					        c1.add(l2);<br>
-					        window.add(c1);<br>
-					        window.getContentPane().add(panel);<br>
-					        window.setVisible(true);<br>
-							<br>
-					        leave.addActionListener(new ActionListener() {<br>
-					            @Override<br>
-					            public void actionPerformed(ActionEvent e) {<br>
-					                window.dispose();<br>
-					            }<br>
-					        });<br>
-					    }<br>
-					    etc...<br>
-				</code>
+        resetWindow();
+        accessMenu.add(connexion);
+        accessMenu.add(registration);
+        connexion.addActionListener(this);
+        registration.addActionListener(this);
+        cho.add(accessMenu);
+        l1.add(cho);
+        l2.add(leave);
+        c1.add(l1);
+        c1.add(l2);
+        window.add(c1);
+        window.getContentPane().add(panel);
+        window.setVisible(true);
+		
+        leave.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                window.dispose();
+            }
+        });
+    }
+    etc...
+				</code></pre>
+
 				<br>
 				Ici donc, un exemple simple et direct. La fenêtre s'affiche avec ses paramètres comme la taille de celle ci, son nom, ainsi que son contenu comme des boutons, des menus déroulants... etc.<br>
 				A ce stade, tout le code concerne l'affichage en mode tiroir: on ajoute les éléments dans des éléments plus grands et ces grands éléments dans d'encore plus grand éléments avant de faire afficher le contenu entier.<br>
 				<br>
 				Pour les affichages suivants, il est important de supprimer le contenu de la fenêtre et de vider les "tiroirs" avec une méthode dans la même classe qui sera appellée à chaque changement d'affichage majeur :<br><br>
+
 			</p>
-			<code>
-				/**<br>
-				     * Reset every content of the window<br>
-				     * Must be called before every display which needs lot of changes<br>
-				     */<br>
-				    private void resetWindow() {<br>
-				        //TABLE<br>
-				        if (userTableModel.getRowCount() > 0) {<br>
-				            for (int i = userTableModel.getRowCount() - 1; i > -1; i--) {<br>
-				                userTableModel.removeRow(i);<br>
-				            }<br>
-				        }<br>
-				        if (architectTableModel.getRowCount() > 0) {<br>
-				            for (int i = architectTableModel.getRowCount() - 1; i > -1; i--) {<br>
-				                architectTableModel.removeRow(i);<br>
-				            }<br>
-				        }<br>
-				        <br>
-				        //MENUS AND MENULIST<br>
-				        accessMenu.removeAll();<br>
-				        accessMenu.revalidate();<br>
-				        accessMenu.repaint();<br>
-				        cho.removeAll();<br>
-				        cho.revalidate();<br>
-				        cho.repaint();<br>
-				        <br>
-				        //JTEXT AND JPASS<br>
-				        userMailJTF.setText(null);<br>
-				        passWord.setText(null);<br>
-				        newMail.setText(null);<br>
-				        confirmPass.setText(null);<br>
-				        newPass.setText(null);<br>
-				        <br>
-				        //BOXES<br>
-				        l1.removeAll();<br>
-				        l1.revalidate();<br>
-				        l1.repaint();<br>
-				        l2.removeAll();<br>
-				        l2.revalidate();<br>
-				        l2.repaint();<br>
-				        l3.removeAll();<br>
-				        l3.revalidate();<br>
-				        l3.repaint();<br>
-				        l4.removeAll();<br>
-				        l4.revalidate();<br>
-				        l4.repaint();<br>
-				        l5.removeAll();<br>
-				        l5.revalidate();<br>
-				        l5.repaint();<br>
-				        c1.removeAll();<br>
-				        c1.revalidate();<br>
-				        c1.repaint();<br>
-				        <br>
-				        //PANEL AND WINDOW<br>
-				        panel.removeAll();<br>
-				        panel.revalidate();<br>
-				        panel.repaint();<br>
-				        window.getContentPane().removeAll();<br>
-				        window.getContentPane().revalidate();<br>
-				        window.getContentPane().repaint();<br>
-				    }<br><br>
-			</code>
+			<pre><code>
+/**
+ * Reset every content of the window
+ * Must be called before every display which needs lot of changes
+ */
+private void resetWindow() {
+    //TABLE
+    if (userTableModel.getRowCount() > 0) {
+        for (int i = userTableModel.getRowCount() - 1; i > -1; i--) {
+            userTableModel.removeRow(i);
+        }
+    }
+    if (architectTableModel.getRowCount() > 0) {
+        for (int i = architectTableModel.getRowCount() - 1; i > -1; i--) {
+            architectTableModel.removeRow(i);
+        }
+    }
+    
+    //MENUS AND MENULIST
+    accessMenu.removeAll();
+    accessMenu.revalidate();
+    accessMenu.repaint();
+    cho.removeAll();
+    cho.revalidate();
+    cho.repaint();
+    
+    //JTEXT AND JPASS
+    userMailJTF.setText(null);
+    passWord.setText(null);
+    newMail.setText(null);
+    confirmPass.setText(null);
+    newPass.setText(null);
+    
+    //BOXES
+    l1.removeAll();
+    l1.revalidate();
+    l1.repaint();
+    l2.removeAll();
+    l2.revalidate();
+    l2.repaint();
+    l3.removeAll();
+    l3.revalidate();
+    l3.repaint();
+    l4.removeAll();
+    l4.revalidate();
+    l4.repaint();
+    l5.removeAll();
+    l5.revalidate();
+    l5.repaint();
+    c1.removeAll();
+    c1.revalidate();
+    c1.repaint();
+    
+    //PANEL AND WINDOW
+    panel.removeAll();
+    panel.revalidate();
+    panel.repaint();
+    window.getContentPane().removeAll();
+    window.getContentPane().revalidate();
+    window.getContentPane().repaint();
+}
+			</code></pre>
+
 			<p>
 				Cela dit, notre classe Display implémnte un actionLIsteners, afin de permettre à l'utilisateur d'utiliser les différents objets à sa disposition pour intéragir avec l'application. Dans le code d'affichage de la première fenêtre, cet ActionListener fut implémenté :<br><br>
 			</p>
-			<code>
-				leave.addActionListener(new ActionListener() {<br>
-					@Override<br>
-					public void actionPerformed(ActionEvent e) {<br>
-					    window.dispose();<br>
-					}<br>
-				});<br><br>
-			</code>
+			<pre><code>
+leave.addActionListener(new ActionListener() {
+	@Override
+	public void actionPerformed(ActionEvent e) {
+	    window.dispose();
+	}
+});
+			</code></pre>
 			<p>
-				Sur le premier écran donc, si l'utilisateur clique sur le bouton identifié "leave", le ActionListener va se déclencher et lancer le code à l'intérieur : ici ce sera 
-				<code>
-					window.dispose();</code>
+				Sur le premier écran donc, si l'utilisateur clique sur le bouton identifié "leave", le ActionListener va se déclencher et lancer le code à l'intérieur : ici ce sera <pre><code>window.dispose();</code></pre>
 				qui sera executé, c'est à dire la fermeture de la fenêtre et donc la fin de l'éxécution de l'application.
 			</p>
 			<p>

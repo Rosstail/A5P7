@@ -66,13 +66,17 @@
     max-height: unset;
 }
 
+pre {
+    background-color: black;
+    color: white;
+    padding-left: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
 code {
     font-family: Monaco, monospace;
-    /*font-size: $base-font-size;*/
-    line-height: 115%;
-    background-color: #eee;
-    /*padding: 1.2em;*/
+    font-size: $base-font-size;
+    line-height: 100%;
     letter-spacing: -0.05em;
-    word-break: normal;
-    border-radius: 5px;
   }
