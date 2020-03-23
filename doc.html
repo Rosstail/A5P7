@@ -50,7 +50,7 @@
 				<button style="font-size: 2vw;" onmouseenter="showHideAdmin()">ADMINISTRATEUR</button>
 			</div>
 		</div>
-		<div id="contentNewUser">
+		<div id="contentNewUser" class="active">
 			<div class="sub-content">
 				<div id="Download" style="text-align: center;">
 					<h3>REGISTER / LOG IN</h3>
@@ -58,7 +58,7 @@
 				<div id="Register / Log In" style="text-align: justify;">
 					<div style="display: flex; flex-wrap: wrap">
 						<div style="flex-basis: 50%;">
-							<img src="img/logIn.png" style="width: 80%; padding-top: 20%;">
+							<img src="img/logIn.png" style="padding-top: 20%;">
 						</div>
 						<div style="flex-basis: 50%;">
 							<p style="padding-top: 7%;">
@@ -74,7 +74,7 @@
 						<br>
 						<br>
 						<div style="flex-basis: 50%;">
-							<img src="img/register.png" style="width: 80%; padding-top: 20%;">
+							<img src="img/register.png" style="padding-top: 20%;">
 						</div>
 						<div style="flex-basis: 50%; padding-top: 10%;">
 							<li>Enter your name: insérez votre nom de famille.</li>
@@ -91,7 +91,7 @@
 					<h3 style="text-align: center;">UPDATE INFO</h3>
 					<div style="display: flex; flex-wrap: wrap">
 						<div style="flex-basis: 50%;">
-							<img src="img/updateInfos.png" style="width: 80%; padding-top: 20%;">
+							<img src="img/updateInfos.png" style="padding-top: 20%;">
 						</div>
 						<div style="flex-basis: 50%;">
 							<p style="padding-top: 7%;">
@@ -117,7 +117,7 @@
 							<h3 style="text-align: center;">CONVERSATIONS</h3>
 							<div style="display: flex; flex-wrap: wrap">
 								<div style="flex-basis: 50%;">
-									<img src="img/conversations.png" style="width: 80%; padding-top: 8%; padding-bottom: 8%;">
+									<img src="img/conversations.png" style="padding-top: 8%; padding-bottom: 8%;">
 								</div>
 								<div style="flex-basis: 50%;">
 									<p style="padding-top: 7%;">
@@ -144,24 +144,26 @@
 				<div id="CheckOwnedProjects" style="text-align: justify;">
 					<h3 style="text-align: center; padding-top: 2%;">CHECK OWNED PROJECTS</h3>
 					<div style="display: flex; flex-wrap: wrap">
-						<img src="img/menuCust.png" style="width: 70%; padding-top: 10%; text-align: center;">
-						<img src="img/projectArch.png">
-						<img src="img/projectDetailsArch.png">
-						<img src="img/stepProjectArch.png">
-					</div>
-					<div style="flex-basis: 50%;">
-						<li style="padding-top: 7%;">General</li>
-						<p>
-							En tant que client, vous aurez surement un ou plusieurs projets effectué sur votre demande. Vous pourrez consulter l'avancée de chacun d'entre eux avec filtrage.
-							<li>Nom de projet</li>
-							<li>Nom de l'architecte référrent</li>
-							<li>Prénom de l'architecte référrent</li>
-							Vous pourrez consulter les détails de votre projet en cliquant sur les boutons.
-						</p>
-						<li>Get project's details : pour voir les détails comme les matériaux du projet, les coûts...</li>
-						<li>get project's steps : Consultez l'avancée de votre projet avec les différentes étapes et informations par rapport à celles ci.</li>
-						<li>Details</li>
-						<li>Steps</li>
+						<div style="flex-basis: 50%;">
+							<img src="img/menuCust.png" style="padding-top: 10%; text-align: center;">
+							<img src="img/projectArch.png">
+							<img src="img/projectDetailsArch.png">
+							<img src="img/stepProjectArch.png">
+						</div>
+						<div style="flex-basis: 50%;">
+							<li style="padding-top: 7%;">General</li>
+							<p>
+								En tant que client, vous aurez surement un ou plusieurs projets effectué sur votre demande. Vous pourrez consulter l'avancée de chacun d'entre eux avec filtrage.
+								<li>Nom de projet</li>
+								<li>Nom de l'architecte référrent</li>
+								<li>Prénom de l'architecte référrent</li>
+								Vous pourrez consulter les détails de votre projet en cliquant sur les boutons.
+							</p>
+							<li>Get project's details : pour voir les détails comme les matériaux du projet, les coûts...</li>
+							<li>get project's steps : Consultez l'avancée de votre projet avec les différentes étapes et informations par rapport à celles ci.</li>
+							<li>Details</li>
+							<li>Steps</li>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -170,7 +172,7 @@
 	<div id="contentArchitect">
 		<div class="sub-content">
 			<h3 style="text-align: center;">MODIFY PROJECT</h3>
-			<img src="img/menuArch.png">
+			<img src="img/menuArch.png" style="text-align: center;">
 			<div id="ModifyOwnedProjects">
 				<p style="text-align: center">
 					En tant qu'architecte, vous avez la capacité de modifier le contenu de n'importe quel projet sur lequel vous êtes référent. Pour modifier une donnée, il vous suffit de double-clicker dessus puis de taper le texte que vous souhaitez. Une fois cela fait, appuyez sur la touche "ENTRER" de votre clavier et hop, l'information est mise à jour !<br>
@@ -253,11 +255,11 @@
 							<li>signdatetime</li> La date et l'heure d'inscription de l'utilisateur sur l'application. Doit respecter la syntaxe suivante: AAAA-MM-JJ HH:mm.
 
 							<br><br>
-							Vous pouvez sélectionner un utilisateur puis cliquer sur "Dete an user" pour l'effacer.
+							Vous pouvez sélectionner un utilisateur puis cliquer sur "Delete an user" pour l'effacer.
 						</p>
 					</div>
 				</div>
-				<div style="display: flex; flex-wrap: wrap;">
+				<div style="display: flex; flex-wrap: wrap; margin-top: 15px;">
 					<div style="flex-basis: 50%;">
 						<img src="img/addUser.png">
 					</div>
@@ -385,9 +387,9 @@
 				architect.className = "";
 				admin.className = "";
 				div.className = "active";
-			} else {
+			} /*else {
 				div.className = "";
-			}
+			}*/
 		}
 
 		function showHideCustomer(){
@@ -400,9 +402,9 @@
 				architect.className = "";
 				admin.className = "";
 				div.className = "active";
-			} else {
+			} /*else {
 				div.className = "";
-			}
+			}*/
 		}
 
 		function showHideArchitect(){
@@ -415,9 +417,9 @@
 				customer.className = "";
 				admin.className = "";
 				div.className = "active";
-			} else {
+			} /*else {
 				div.className = "";
-			}
+			}*/
 		}
 
 		function showHideAdmin(){
@@ -430,9 +432,9 @@
 				customer.className = "";
 				architect.className = "";
 				div.className = "active";
-			} else {
+			} /*else {
 				div.className = "";
-			}
+			}*/
 		}
 	</script>
 </body>

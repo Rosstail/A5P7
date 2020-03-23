@@ -27,6 +27,22 @@
     transition: max-height 1000ms;
 }
 
+.sub-content img {
+    width: 90%;
+}
+
+.sub-content {
+    font-size: 1.5vw;
+}
+
+.sub-content p {
+    font-size: 2vw;
+}
+
+.sub-content li {
+    font-size: 2vw;
+}
+
 #contentCustomer.active {
     /* Depending on this value, your animatiom will seem faster or shorter */
     max-height: unset;
