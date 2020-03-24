@@ -1,15 +1,18 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>DOCUMENATTION TECHNIQUE</title>
+	<title>DOCUMENTATION TECHNIQUE</title>
 	<meta name="language" content="fr">
 	<meta name="description" content="DESCRIPTION DE LA PAGE.">
 	<meta name="keywords" content="keyword1, keyword2, keyword3" lang="fr">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
 	<link rel="stylesheet" href="styles/style.css">
 	<link rel="stylesheet" href="styles/doc.css">
-	<script src="https://kit.fontawesome.com/a076d05399.js"></script>	
+    <link rel="stylesheet" href="styles/syntax.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css">
+	<!--<script src="https://kit.fontawesome.com/a076d05399.js"></script>-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
 </head>
 <body>
 	<header>
@@ -54,33 +57,33 @@
 				<br>
 			</p>
 			<pre><code>
-public String architectProjectFilter(JTextField userName, JTextField userFirstName, JTextField projectName) {
-	String request = "SELECT A.architect_id, U.user_firstname, U.user_name, P.project_name, A.architect_assigned_datetime\n" +
-            "FROM architects AS A, users AS U, projects AS P " +
-            "WHERE U.user_id = A.architect_id AND P.project_id = A.architect_project_id";
-    if (userFirstName.getText().length() >= 3)
-        request = request + " AND U.user_firstname LIKE '" + userFirstName.getText() + "%'";
-    if (userName.getText().length() >= 3)
-        request = request + " AND U.user_name LIKE '" + userName.getText() + "%'";
-    if (projectName.getText().length() >= 3)
-        request = request + " AND P.project_name LIKE '" + projectName.getText() + "%'";
-    System.out.println(request);
+<o>public</o> String <y>architectProjectFilter</y>(JTextField userName<o>,</o> JTextField userFirstName<o>,</o> JTextField projectName) {
+	String request = <gr>"SELECT A.architect_id, CONCAT(U.user_firstname, <o>\"</o> <o>\"</o>, U.user_name), P.project_name, A.architect_assigned_datetime\n"</gr> +
+            <gr>"FROM architects AS A, users AS U, projects AS P "</gr> +
+            <gr>"WHERE U.user_id = A.architect_id AND P.project_id = A.architect_project_id"</gr><o>;</o>
+    <o>if</o> (userFirstName.getText().length() >= 3)
+        request = request + <gr>" AND U.user_firstname LIKE '"</gr> + userFirstName.getText() + <gr>"%'"</gr><o>;</o>
+    <o>if</o> (userName.getText().length() >= 3)
+        request = request + <gr>" AND U.user_name LIKE '"</gr> + userName.getText() + <gr>"%'"</gr><o>;</o>
+    <o>if</o> (projectName.getText().length() >= 3)
+        request = request + <gr>" AND P.project_name LIKE '"</gr> + projectName.getText() + <gr>"%'"</gr>;
+    System.<pu>out</pu>.println(request)<o>;</o>
 	
-    return request;
+    <o>return</o> request<o>;</o>
 }
 			</code></pre>
 			<p>
 				<pre><code>
-public String architectProjectFilter(JTextField userName, JTextField userFirstName, JTextField projectName) {
+<o>public</o> String <y>architectProjectFilter</y>(JTextField userName<o>,</o> JTextField userFirstName<o>,</o> JTextField projectName) {
 				</code></pre>
 				<br>
 
 				Il s'agit de a fonction appellée avant de faire la requête, étant donné que le filtre retourne une requête SQL sous forme de String.<br><br>
 
 				<pre><code>
-String request = "SELECT A.architect_id, U.user_firstname, U.user_name, P.project_name, A.architect_assigned_datetime\n" +
-"FROM architects AS A, users AS U, projects AS P " +
-"WHERE U.user_id = A.architect_id AND P.project_id = A.architect_project_id";
+String request = <gr>"SELECT A.architect_id, CONCAT(U.user_firstname, <o>\"</o> <o>\"</o>, U.user_name, P.project_name, A.architect_assigned_datetime\n"</gr> +
+<gr>"FROM architects AS A, users AS U, projects AS P "</gr> +
+<gr>"WHERE U.user_id = A.architect_id AND P.project_id = A.architect_project_id"</gr><o>;</o>
 			    </code></pre>
 
 			    Voici donc le filtre par défaut: il s'agit donc du filtre de permission: <br>
@@ -96,8 +99,8 @@ String request = "SELECT A.architect_id, U.user_firstname, U.user_name, P.projec
 			    Maintenant que le filtre de permission est terminé, il reste à appliquer les filtres supplémentaires si l'utilisateur le désire : tous se basent sur le même principe.<br>
 
 			    <pre><code>
-if (userFirstName.getText().length() >= 3)
-	request = request + " AND U.user_firstname LIKE '" + userFirstName.getText() + "%'";
+<o>if</o> (userFirstName.getText().length() >= 3)
+	request = request + <gr>" AND U.user_firstname LIKE '"</gr> + userFirstName.getText() + <gr>"%'"</gr><o>;</o>
 			    </code></pre>
 
 			    <li>Dans le IF</li>, nbous vérifions que le champs de texte que l'utilisateur a rempli précédemment contienne au moins 3 caractères: sinon, le filtre n'a pas lieu d'être et nous passons à la prochaine vérification OU au return.
@@ -119,75 +122,75 @@ if (userFirstName.getText().length() >= 3)
 			</p>
 			<p>
 				<pre><code>
-public class Display implements ActionListener {
-    private UpdateProfile updateProfile = new UpdateProfile();
-    private EditableTable editableTable = new EditableTable();
+<o>public class</o> Display implements ActionListener {
+    <o>private</o> UpdateProfile <pu>updateProfile</pu> = <o>new</o> UpdateProfile()<o>;</o>
+    <o>private</o> EditableTable <pu>editableTable</pu> = <o>new</o> EditableTable()<o>;</o>
 	
-    private JFrame window = new JFrame();
-    private JMenu accessMenu = new JMenu("Se connecter / S'enregistrer");
-    private JMenuBar cho = new JMenuBar();
-    private JMenuItem connexion = new JMenuItem("Se connecter");
-    private JMenuItem registration = new JMenuItem("S'inscrire");
-    private JButton logIn = new JButton("Connexion");
-    private JButton signUp = new JButton("Inscription");
-    private JPanel panel = new JPanel();
+    <o>private</o> JFrame <pu>window</pu> = <o>new</o> JFrame()<o>;</o>
+    <o>private</o> JMenu <pu>accessMenu</pu> = <o>new</o> JMenu(<gr>"Se connecter / S'enregistrer"</gr>)<o>;</o>
+    <o>private</o> JMenuBar <pu>cho</pu> = <o>new</o> JMenuBar()<o>;</o>
+    <o>private</o> JMenuItem <pu>connexion</pu> = <o>new</o> JMenuItem(<gr>"Se connecter"</gr>)<o>;</o>
+    <o>private</o> JMenuItem <pu>registration</pu> = <o>new</o> JMenuItem(<gr>"S'inscrire"</gr>)<o>;</o>
+    <o>private</o> JButton <pu>logIn</pu> = <o>new</o> JButton(<gr>"Connexion"</gr>)<o>;</o>
+    <o>private</o> JButton <pu>signUp</pu> = <o>new</o> JButton(<gr>"Inscription"</gr>)<o>;</o>
+    <o>private</o> JPanel <pu>panel</pu> = <o>new</o> JPanel()<o>;</o>
 
-    private Box l1 = Box.createHorizontalBox();
-    private Box l2 = Box.createHorizontalBox();
-    private Box l3 = Box.createHorizontalBox();
-    private Box l4 = Box.createHorizontalBox();
-    private Box l5 = Box.createHorizontalBox();
-    private Box c1 = Box.createVerticalBox();
-    private JButton disconnect = new JButton("Disconnect");
-    private JTextField userMailJTF = new JTextField(10);
-    private JPasswordField passWord = new JPasswordField(10);
-    private JPasswordField passWordConfirm = new JPasswordField(10);
+    <o>private</o> Box <pu>l1</pu> = Box.createHorizontalBox()<o>;</o>
+    <o>private</o> Box <pu>l2</pu> = Box.createHorizontalBox()<o>;</o>
+    <o>private</o> Box <pu>l3</pu> = Box.createHorizontalBox()<o>;</o>
+    <o>private</o> Box <pu>l4</pu> = Box.createHorizontalBox()<o>;</o>
+    <o>private</o> Box <pu>l5</pu> = Box.createHorizontalBox()<o>;</o>
+    <o>private</o> Box <pu>c1</pu> = Box.createVerticalBox()<o>;</o>
+    <o>private</o> JButton <pu>disconnect</pu> = <o>new</o> JButton(<gr>"Disconnect"</gr>)<o>;</o>
+    <o>private</o> JTextField <pu>userMailJTF</pu> = <o>new</o> JTextField(10)<o>;</o>
+    <o>private</o> JPasswordField <pu>passWord</pu> = <o>new</o> JPasswordField(10)<o>;</o>
+    <o>private</o> JPasswordField <pu>passWordConfirm</pu> = <o>new</o> JPasswordField(10)<o>;</o>
 
-    private Connection connection;
+    <o>private</o> Connection <pu>connection</pu><o>;</o>
 
-    /**
+    <gr>/**
      * Initialize the connection to the database, call for displays after
-     * @throws SQLException
-     */
-    protected void setConnection() throws SQLException {
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:8889/bdd_ca_design",
-                "anthony", "Atelier2");
-        setWindow();
+     * <by>@throws SQLException</by>
+     */</gr>
+    <o>protected</o> void setConnection() throws SQLException {
+        <pu>connection</pu> = DriverManager.getConnection(<gr>"jdbc:mysql://adress:port/database_name"</gr><o>,</o>
+                <gr>"userName"</gr><o>,</o> <gr>"passWord"</gr>)<o>;</o>
+        setWindow()<o>;</o>
     }
 	
-    JButton leave = new JButton("EXIT");
-    /**
+    JButton leave = <o>new</o> JButton(<gr>"EXIT"</gr>)<o>;</o>
+    <gr>/**
      * Displays the main window (Connection / logIn)
-     */
-    private void setWindow() {
-        //*** SET GENERALS INFO OF THE WINDOW ***
-        window.setTitle("CA DESIGN - HOME");
-        window.setSize(1200, 1000);
-        window.setLocationRelativeTo(null);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setLayout(new FlowLayout());
-        //***************************************
+     */</gr>
+    <o>private</o> void setWindow() {
+        <ga>//*** SET GENERALS INFO OF THE WINDOW ***</ga>
+        <pu>window</pu>.setTitle(<gr>"CA DESIGN - HOME"</gr>)<o>;</o>
+        <pu>window</pu>.setSize(1200, 1000)<o>;</o>
+        <pu>window</pu>.setLocationRelativeTo(<o>null</o>)<o>;</o>
+        <pu>window</pu>.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)<o>;</o>
+        <pu>window</pu>.setLayout(<o>new</o> FlowLayout())<o>;</o>
+        <ga>//***************************************</ga>
 
-        resetWindow();
-        accessMenu.add(connexion);
-        accessMenu.add(registration);
-        connexion.addActionListener(this);
-        registration.addActionListener(this);
-        cho.add(accessMenu);
-        l1.add(cho);
-        l2.add(leave);
-        c1.add(l1);
-        c1.add(l2);
-        window.add(c1);
-        window.getContentPane().add(panel);
-        window.setVisible(true);
+        resetWindow()<o>;</o>
+        <pu>accessMenu</pu>.add(<pu>connexion</pu>)<o>;</o>
+        <pu>accessMenu</pu>.add(<pu>registration</pu>)<o>;</o>
+        <pu>connexion</pu>.addActionListener(<o>this</o>)<o>;</o>
+        <pu>registration</pu>.addActionListener(<o>this</o>)<o>;</o>
+        <pu>cho</pu>.add(<pu>accessMenu</pu>)<o>;</o>
+        <pu>l1</pu>.add(<pu>cho</pu>)<o>;</o>
+        <pu>l2</pu>.add(<pu>leave</pu>)<o>;</o>
+        <pu>c1</pu>.add(<pu>l1</pu>)<o>;</o>
+        <pu>c1</pu>.add(<pu>l2</pu>)<o>;</o>
+        <pu>window</pu>.add(<pu>c1</pu>)<o>;</o>
+        <pu>window</pu>.getContentPane().add(<pu>panel</pu>)<o>;</o>
+        <pu>window</pu>.setVisible(<o>true</o>)<o>;</o>
 		
-        leave.addActionListener(new ActionListener() {
+        <pu>leave</pu>.addActionListener(<o>new</o> ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                window.dispose();
+            <o>public</o> void actionPerformed(ActionEvent e) {
+                <pu>window</pu>.dispose()<o>;</o>
             }
-        });
+        })<o>;</o>
     }
     etc...
 				</code></pre>
@@ -200,65 +203,65 @@ public class Display implements ActionListener {
 
 			</p>
 			<pre><code>
-/**
+<gr>/**
  * Reset every content of the window
  * Must be called before every display which needs lot of changes
- */
-private void resetWindow() {
-    //TABLE
-    if (userTableModel.getRowCount() > 0) {
-        for (int i = userTableModel.getRowCount() - 1; i > -1; i--) {
-            userTableModel.removeRow(i);
+ */</gr>
+<o>private</o> void <y>resetWindow</y>() {
+    <ga>//TABLE</ga>
+    <o>if</o> (<pu>userTableModel</pu>.getRowCount() > 0) {
+        <o>for</o> (int i = <pu>userTableModel</pu>.getRowCount() - 1; i > -1; i--) {
+            <pu>userTableModel</pu>.removeRow(i)<o>;</o>
         }
     }
-    if (architectTableModel.getRowCount() > 0) {
-        for (int i = architectTableModel.getRowCount() - 1; i > -1; i--) {
-            architectTableModel.removeRow(i);
+    <o>if</o> (<pu>architectTableModel</pu>.getRowCount() > 0) {
+        <o>for</o> (int i = <pu>architectTableModel</pu>.getRowCount() - 1; i > -1; i--) {
+            <pu>architectTableModel</pu>.removeRow(i)<o>;</o>
         }
     }
     
-    //MENUS AND MENULIST
-    accessMenu.removeAll();
-    accessMenu.revalidate();
-    accessMenu.repaint();
-    cho.removeAll();
-    cho.revalidate();
-    cho.repaint();
+    <ga>//MENUS AND MENULIST</ga>
+    <pu>accessMenu</pu>.removeAll()<o>;</o>
+    <pu>accessMenu</pu>.revalidate()<o>;</o>
+    <pu>accessMenu</pu>.repaint()<o>;</o>
+    <pu>cho</pu>.removeAll()<o>;</o>
+    <pu>cho</pu>.revalidate()<o>;</o>
+    <pu>cho</pu>.repaint()<o>;</o>
     
-    //JTEXT AND JPASS
-    userMailJTF.setText(null);
-    passWord.setText(null);
-    newMail.setText(null);
-    confirmPass.setText(null);
-    newPass.setText(null);
+    <ga>//JTEXT AND JPASS</ga>
+    <pu>userMailJTF</pu>.setText(<o>null</o>)<o>;</o>
+    <pu>passWord</pu>.setText(<o>null</o>)<o>;</o>
+    <pu>newMail</pu>.setText(<o>null</o>)<o>;</o>
+    <pu>confirmPass</pu>.setText(<o>null</o>)<o>;</o>
+    <pu>newPass</pu>.setText(<o>null</o>)<o>;</o>
     
-    //BOXES
-    l1.removeAll();
-    l1.revalidate();
-    l1.repaint();
-    l2.removeAll();
-    l2.revalidate();
-    l2.repaint();
-    l3.removeAll();
-    l3.revalidate();
-    l3.repaint();
-    l4.removeAll();
-    l4.revalidate();
-    l4.repaint();
-    l5.removeAll();
-    l5.revalidate();
-    l5.repaint();
-    c1.removeAll();
-    c1.revalidate();
-    c1.repaint();
+    <ga>//BOXES</ga>
+    <pu>l1</pu>.removeAll()<o>;</o>
+    <pu>l1</pu>.revalidate()<o>;</o>
+    <pu>l1</pu>.repaint()<o>;</o>
+    <pu>l2</pu>.removeAll()<o>;</o>
+    <pu>l2</pu>.revalidate()<o>;</o>
+    <pu>l2</pu>.repaint()<o>;</o>
+    <pu>l3</pu>.removeAll()<o>;</o>
+    <pu>l3</pu>.revalidate()<o>;</o>
+    <pu>l3</pu>.repaint()<o>;</o>
+    <pu>l4</pu>.removeAll()<o>;</o>
+    <pu>l4</pu>.revalidate()<o>;</o>
+    <pu>l4</pu>.repaint()<o>;</o>
+    <pu>l5</pu>.removeAll()<o>;</o>
+    <pu>l5</pu>.revalidate()<o>;</o>
+    <pu>l5</pu>.repaint()<o>;</o>
+    <pu>c1</pu>.removeAll()<o>;</o>
+    <pu>c1</pu>.revalidate()<o>;</o>
+    <pu>c1</pu>.repaint()<o>;</o>
     
-    //PANEL AND WINDOW
-    panel.removeAll();
-    panel.revalidate();
-    panel.repaint();
-    window.getContentPane().removeAll();
-    window.getContentPane().revalidate();
-    window.getContentPane().repaint();
+    <ga>//PANEL AND WINDOW</ga>
+    <pu>panel</pu>.removeAll()<o>;</o>
+    <pu>panel</pu>.revalidate()<o>;</o>
+    <pu>panel</pu>.repaint()<o>;</o>
+    <pu>window</pu>.getContentPane().removeAll()<o>;</o>
+    <pu>window</pu>.getContentPane().revalidate()<o>;</o>
+    <pu>window</pu>.getContentPane().repaint()<o>;</o>
 }
 			</code></pre>
 
@@ -266,15 +269,15 @@ private void resetWindow() {
 				Cela dit, notre classe Display implémnte un actionLIsteners, afin de permettre à l'utilisateur d'utiliser les différents objets à sa disposition pour intéragir avec l'application. Dans le code d'affichage de la première fenêtre, cet ActionListener fut implémenté :<br><br>
 			</p>
 			<pre><code>
-leave.addActionListener(new ActionListener() {
-	@Override
-	public void actionPerformed(ActionEvent e) {
-	    window.dispose();
-	}
-});
+<pu>leave</pu>.addActionListener(<o>new</o> ActionListener() {
+    @Override
+    <o>public</o> void actionPerformed(ActionEvent e) {
+        <pu>window</pu>.dispose()<o>;</o>
+    }
+})<o>;</o>
 			</code></pre>
 			<p>
-				Sur le premier écran donc, si l'utilisateur clique sur le bouton identifié "leave", le ActionListener va se déclencher et lancer le code à l'intérieur : ici ce sera <pre><code>window.dispose();</code></pre>
+				Sur le premier écran donc, si l'utilisateur clique sur le bouton identifié "leave", le ActionListener va se déclencher et lancer le code à l'intérieur : ici ce sera <pre><code><pu>window</pu>.dispose();</code></pre>
 				qui sera executé, c'est à dire la fermeture de la fenêtre et donc la fin de l'éxécution de l'application.
 			</p>
 			<p>
@@ -293,71 +296,72 @@ leave.addActionListener(new ActionListener() {
 	<p>Pour ce faire, nous créons pour commencer notre JTable qui vont afficher les informations de la BDD, ici on veut gérer les utilisateurs en tant qu'admin</p>
 	<div class = "conteneurCode">
 	<pre><code>
-		String[] entetes = {"id", "name", "firstname", "mail", "password", "role", "signdatetime"}; <span style="color:grey">//Ici, nous créons le nom des colonnes de notre tableau</span>
-    		JTable table = new JTable(); <span style="color:grey">//On créer un objet de type JTable</span>
-    		DefaultTableModel aModel = (DefaultTableModel) table.getModel(); <span style="color:grey">//Nous créons ensuite un modèle de tableau, c'est grâce à lui que nous allons le peupler</span>
-    		aModel.setColumnIdentifiers(entetes); <span style="color:grey">//On lui attribue les entêtes crées</span>
-    		JScrollPane jsp = new JScrollPane(table);
-    		Dimension dimension = new Dimension(750, 300);
-    		jsp.setPreferredSize(dimension);
-    		window.add(jsp); <span style="color:grey">//On ajoute un conteneur scrollable d'une certaine dimension dans lequel on affichera le tableau</span>
+String[] entetes = {<gr>"id"</gr><o>,</o> <gr>"name"</gr><o>,</o> <gr>"firstname"</gr><o>,</o> <gr>"mail"</gr><o>,</o> <gr>"password"</gr><o>,</o> <gr>"role"</gr><o>,</o> <gr>"signdatetime"</gr>}<o>;</o> <ga>//Ici, nous créons le nom des colonnes de notre tableau</ga>
+JTable table = <o>new</o> JTable(); <ga>//On créer un objet de type JTable</ga>
+DefaultTableModel aModel = (DefaultTableModel) table.getModel(); <ga>//Nous créons ensuite un modèle de tableau, c'est grâce à lui que nous allons le peupler</ga>
+aModel.setColumnIdentifiers(entetes); <ga>//On lui attribue les entêtes crées</ga>
+JScrollPane jsp = <o>new</o> JScrollPane(table)<o>;</o>
+Dimension dimension = <o>new</o> Dimension(750, 300)<o>;</o>
+jsp.setPreferredSize(dimension)<o>;</o>
+window.add(jsp)<o>;</o> <ga>//On ajoute un conteneur scrollable d'une certaine dimension dans lequel on affichera le tableau</ga>
 	</code></pre>
 	</div>
 	<div class="conteneurCode">
 	<pre><code>
-		String request = requestText; <span style="color:grey">//On récupère la requête en paramêtre de la fonction, ici la requête va SELECT * la table users</span>
-        		try {
-            		Statement statement = connection.createStatement(); <span style="color:grey">//On se connecte à la base de donnée</span>
-            		ResultSet results = statement.executeQuery(request); <span style="color:grey">//On exécute la requête et on stocke les données dans la variable results</span>
-            		ResultSetMetaData meta = results.getMetaData(); <span style="color:grey">//Ici, on récupère et on stocke les méta données</span>
-            		int colCount = meta.getColumnCount(); <span style="color:grey">//On stocke le nombre de colonnes dans une variable colCount</span>
-            		while (results.next()) { <span style="color:grey">//Tant qu'on n'est pas à la fin des données</span>
-                		Object[] objects = new Object[colCount];
-                		for(int i = 0; i < colCount; i++) {
-                    		objects[i] = results.getObject(i+1);
-                		} <span style="color:grey">//On créer des nouveaux tableaux d'objets dans lesquels on stocke chaque ligne du tableau de la BDD</span>
-                  aModel.addRow(objects); <span style="color:grey">//On ajoute les différentes ligne à notre modèle</span>
-            	}
-                 table.setModel(aModel); <span style="color:grey">//On peuple notre JTable grâce à ce modèle</span>
-       			} catch (SQLException e) {
-            		e.printStackTrace();
-        		}
+String request = requestText<o>;</o> <ga>//On récupère la requête en paramêtre de la fonction, ici la requête va SELECT * la table users</ga>
+<o>try</o> {
+	Statement statement = connection.createStatement()<o>;</o> <ga>//On se connecte à la base de donnée</ga>
+	ResultSet results = statement.executeQuery(request)<o>;</o> <ga>//On exécute la requête et on stocke les données dans la variable results</ga>
+	ResultSetMetaData meta = results.getMetaData()<o>;</o> <ga>//Ici, on récupère et on stocke les méta données</ga>
+	int colCount = meta.getColumnCount()<o>;</o> <ga>//On stocke le nombre de colonnes dans une variable colCount</ga>
+	<o>while</o> (results.next()) { <ga>//Tant qu'on n'est pas à la fin des données</ga>
+		Object[] objects = <o>new</o> Object[colCount]<o>;</o>
+		for(int i = 0<o>;</o> i < colCount<o>;</o> i++) {
+    		objects[i] = results.getObject(i+1)<o>;</o>
+		} <ga>//On créer des nouveaux tableaux d'objets dans lesquels on stocke chaque ligne du tableau de la BDD</ga>
+  aModel.addRow(objects)<o>;</o> <ga>//On ajoute les différentes ligne à notre modèle</ga>
+}
+ table.setModel(aModel)<o>;</o> <ga>//On peuple notre JTable grâce à ce modèle</ga>
+	} <o>catch</o> (SQLException e) {
+	e.printStackTrace()<o>;</o>
+}
+etc...
 	</code></pre>
 	</div>
 	<p>Nous voulons récupérer les données de notre JTable qui changent et les envoyer à la BDD pour la modifier du même coup. Pour détecter si les données du JTable sont modifées, nous allons ajouter un listener sur son modèle comme suit :</p>
 	<div class="conteneurCode">
 		<pre><code>
-			aModel.addTableModelListener(new TableModelListener() { <span style="color:grey">//On ajoute le listener au modèle</span><br>
-            	@Override<br>
-            	public void tableChanged(TableModelEvent tableModelEvent) { editableTable.editUsers(tableModelEvent, table, connection); } <span style="color:grey">//Chaque fois que le modèle change, les changements seront envoyés à la méthode editUsers de la classe editableTable</span><br>
-        	});<br>
+aModel.addTableModelListener(<o>new</o> TableModelListener() { <ga>//On ajoute le listener au modèle</ga>
+	@Override
+	<o>public</o> void tableChanged(TableModelEvent tableModelEvent) { editableTable.editUsers(tableModelEvent<o>,</o> table<o>,</o> connection)<o>;</o> } <ga>//Chaque fois que le modèle change, les changements seront envoyés à la méthode editUsers de la classe editableTable</ga>
+});
 		</code></pre>
 	</div>
 	<p>Nous avons maintenant récupérer les modifications faites sur notre JTable, nous devons maintenant les transmettre à la BDD pour qu'elle se mette à jour à l'aide de la méthode editUsers pour la table "users"</p>
 	<div class="conteneurCode">
 		<pre><code>
-			public void editUsers(TableModelEvent t, JTable table, Connection connection) {<br>
-        		if (t.getType() == TableModelEvent.UPDATE) { <span style="color:grey">//Si le changement qui a eu lieu est de type "update" c'est à dire si on a modifié le modèle</span><br>
-            		int row = t.getFirstRow();<br>
-            		int column = t.getColumn(); <span style="color:grey">//On récupère les coordonnées du changement</span><br>
-            		String newValue = (String)table.getValueAt(row, column); <span style="color:grey">//On récupère la nouvelle valeur</span><br>
-            		Object id = table.getValueAt(row, 0); <span style="color:grey">//On récupère l'id de la ligne où le changement a eu lieu</span><br>
-            		String request = "SELECT * FROM users WHERE user_id = "+id; <span style="color:grey">//On créer la requête pour récupérer les données de la ligne en question</span><br>
+<o>public</o> void editUsers(TableModelEvent t<o>,</o> JTable table<o>,</o> Connection connection) {
+	<o>if</o> (t.getType() == TableModelEvent.UPDATE) { <ga>//Si le changement qui a eu lieu est de type "update" c'est à dire si on a modifié le modèle</ga>
+		int row = t.getFirstRow()<o>;</o>
+		int column = t.getColumn()<o>;</o> <ga>//On récupère les coordonnées du changement</ga>
+		String newValue = (String)table.getValueAt(row, column)<o>;</o> <ga>//On récupère la nouvelle valeur</ga>
+		Object id = table.getValueAt(row, 0)<o>;</o> <ga>//On récupère l'id de la ligne où le changement a eu lieu</ga>
+		String request = <gr>"SELECT * FROM users WHERE user_id = "</gr> + id<o>;</o> <ga>//On créer la requête pour récupérer les données de la ligne en question</ga>
 		</code></pre>
 	</div>
 	<div class="conteneurCode">
 		<pre><code>
-			try {<br>
-                Statement statement = connection.createStatement(); <span style="color:grey">//On établit la connexion</span><br>
-                ResultSet results = statement.executeQuery(request);<br>
-                ResultSetMetaData rsmd = results.getMetaData(); <span style="color:grey">//On éxécute la requête créée précédemment et on la stocke</span><br>
-                String columnToEdit = rsmd.getColumnName(column+1); <span style="color:grey">//On récupère la colonne à éditer</span><br>
-                String update = "UPDATE users SET "+columnToEdit+" = '"+newValue+"' WHERE user_id = "+id; <span style="color:grey">//On créer la requête pour éditer la BDD</span><br>
-                System.out.println(update);<br>
-                statement.executeUpdate(update); <span style="color:grey">//On éxécute la requête d'édition</span><br>
-            } catch (SQLException e) {<br>
-                e.printStackTrace();<br>
-            }<br>
+<o>try</o> {
+    Statement statement = connection.createStatement()<o>;</o> <ga>//On établit la connexion</ga>
+    ResultSet results = statement.executeQuery(request)<o>;</o>
+    ResultSetMetaData rsmd = results.getMetaData()<o>;</o> <ga>//On éxécute la requête créée précédemment et on la stocke</ga>
+    String columnToEdit = rsmd.getColumnName(column+1)<o>;</o> <ga>//On récupère la colonne à éditer</ga>
+    String update = <gr>"UPDATE users SET "</gr> + columnToEdit + <gr>" = '"</gr> + newValue + <gr>"' WHERE user_id = "</gr> + id<o>;</o> <ga>//On créer la requête pour éditer la BDD</ga>
+    System.out.println(update)<o>;</o>
+    statement.executeUpdate(update)<o>;</o> <ga>//On éxécute la requête d'édition</ga>
+} <o>catch</o> (SQLException e) {
+    e.printStackTrace()<o>;</o>
+}
 		</code></pre>
 	</div>
 	<h3>Nous avons donc réussi à éditer la base de donnée en direct grâce à notre Jtable !</h3>
@@ -371,39 +375,39 @@ leave.addActionListener(new ActionListener() {
 	<p>Lors de la connexion de l'utilisateur, on vérifie s'il a coché la case "Remember my informations"</p>
 	<p>S'il l'a fait et que la connexion a réussi, on procède à la création d'un fichier d'informations INI</p>
 	<pre><code>
-		 static void creation(JTextField mail, JTextField passWord, JCheckBox checkBox) {<br>
-        try {<br>
-            if (checkBox.isSelected()) { <span style="color:grey">//On vérifie que la case "Remember my informations"</span><br>
-                File file = new File("infosCo.ini");<br>
-                file.createNewFile(); <span style="color:grey">//Si c'est le cas, on créer le fichier "infosCo.ini"</span><br>
-                Wini ini = new Wini(file); <span style="color:grey">//On utilise la bibliothèque ini4j pour manipuler le fichier .ini</span><br>
-                ini.put("InfosCo", "mail", mail.getText());<br>
-                ini.put("InfosCo", "password", passWord.getText());<br>
-                ini.store(); <span style="color:grey">//On stocke les informations des champs de connexion dans le fichier, le mail dans la section "mail", le password dans la section "password"</span><br>
-            }<br>
-        } catch (IOException e) {<br>
-            e.printStackTrace();<br>
-        }<br>
-    }<br>
+<o>static</o> void creation(JTextField mail<o>,</o> JTextField passWord<o>,</o> JCheckBox checkBox) {
+    <o>try</o> {
+        <o>if</o> (checkBox.isSelected()) { <ga>//On vérifie que la case "Remember my informations"</ga>
+            File file = <o>new</o> File(<gr>"infosCo.ini"</gr>)<o>;</o>
+            file.createNewFile()<o>;</o> <ga>//Si c'est le cas, on créer le fichier "infosCo.ini"<ga>
+            Wini ini = <o>new</o> Wini(file)<o>;</o> <ga>//On utilise la bibliothèque ini4j pour manipuler le fichier .ini</ga>
+            ini.put(<gr>"InfosCo"</gr><o>,</o> <gr>"mail"</gr><o>,</o> mail.getText())<o>;</o>
+            ini.put(<gr>"InfosCo"</gr><o>,</o> <gr>"password"</gr><o>,</o> passWord.getText())<o>;</o>
+            ini.store(); <ga>//On stocke les informations des champs de connexion dans le fichier, le mail dans la section "mail", le password dans la section "password"</ga>
+        }
+    } <o>catch</o> (IOException e) {
+        e.printStackTrace()<o>;</o>
+    }
+}
 	</code></pre>	
 	<img src="img/Ini3.png">
 	<p>Voici le fichier créer et les informations stockées dedans</p>
 	<p>Nous voulons maintenant, lorsque l'écran d'accueil est chargé que les champs de texte soient préremplis avec les informations contenues dans le fichier Ini</p>
 	<pre><code>
-		public void check(JTextField user, JTextField passWord) {<br>
-        	File file = new File("infosCo.ini");<br>
-        	if (file.exists()) { <span style="color:grey">//On vérifie si le fichier Ini existe déjà</span><br>
-            	try {<br>
-                	Wini ini = new Wini(file);<br>
-                	String stringMail = ini.get("InfosCo", "mail");<br>
-                	String stringPassWord = ini.get("InfosCo", "password");  <span style="color:grey">//Si oui, on récupère les informations à la section "mail" et "password"</span><br>
-                	user.setText(stringMail);<br>
-                	passWord.setText(stringPassWord); <span style="color:grey">//Avec; on remplit les champs de texte du pseudo et du password pris en paramètre</span><br>
-            	} catch (IOException e) {<br>
-               		e.printStackTrace();<br>
-            	}<br>
-        	}<br>
-    	}<br>
+<o>public</o> void check(JTextField user<o>,</o> JTextField passWord) {
+	File file = <o>new</o> File(<gr>"infosCo.ini"</gr>)<o>;</o>
+	<o>if</o> (file.exists()) { <ga>//On vérifie si le fichier Ini existe déjà</ga>
+    	<o>try</o> {<br>
+        	Wini ini = <o>new</o> Wini(file)<o>;</o>
+        	String stringMail = ini.get(<gr>"InfosCo"</gr><o>,</o> <gr>"mail"</gr>)<o>;</o>
+        	String stringPassWord = ini.get(<gr>"InfosCo"</gr>, <gr>"password"</gr>)<o>;</o>  <ga>//Si oui, on récupère les informations à la section "mail" et "password"</ga>
+        	user.setText(stringMail)<o>;</o>
+        	passWord.setText(stringPassWord)<o>;</o> <ga>//Avec; on remplit les champs de texte du pseudo et du password pris en paramètre</ga>
+    	} <o>catch</o> (IOException e) {
+       		e.printStackTrace()<o>;</o>
+    	}
+	}
+}
 	</code></pre>
 	<h3>Et voilà, nos champs de connexion sont désormais préremplis lors du chargement de la fenêtre !</h3>
 	</div>
