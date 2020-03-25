@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="styles/doc.css">
     <link rel="stylesheet" href="styles/syntax.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
 	<!--<script src="https://kit.fontawesome.com/a076d05399.js"></script>-->
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
 </head>
@@ -22,9 +23,9 @@
 					<a href="accueil.html"><img style="height: 3vw" src="https://static1.squarespace.com/static/59f0de346957da078de340e3/t/5be9824d032be4540ec984d1/1542029902989/CA_PRIMARY_LOGO.png?format=1500w"></a>
 				</div>
 				<div id="navbar">
-					<a href="accueil.html">ACCUEIL</a>
-					<a href="doc.html">DOCUMENTATION</a>
-					<a href="doctech.html">DOC TECHNIQUE</a>
+					<a href="accueil.html">Accueil</a>
+					<a href="doc.html">Documentation</a>
+					<a href="doctech.html">Doc Technique</a>
 				</div>
 				<div class="dropdown">
 					<button onclick="myFunction(event)" class="dropbtn">
@@ -40,17 +41,14 @@
 			</div>
 		</div>
 		<div>
-			<img style="width: 100%" src="https://d32ogoqmya1dw8.cloudfront.net/images/integrate/teaching_materials/global_energy/earths_thermostat_banner_3.jpg">
+			<img style="width: 100%" src="img/doctechnique.jpg">
 		</div>
 	</header>
 
-	<div class="category">
-		<button>DOC TECHNIQUE</button>
-	</div>
-	<div style="margin-left: 20px; margin-right: 20px;">
+	<div id="contentDocTech">
 		<div>
 			<p>
-				<h2>FILTRES</h2><br>
+				<h3 style="padding-top: 2%;">FILTRES</h3><br>
 				Lorsque l'aplication doit afficher des informations à l'utilisateur, il se peut que certains filtres doient être mis en place pour éviter d'afficher des informations inutiles, mais aussi empêcher l'utilisateur d'accéder à des informations qu'il n'a pas le droit de voir en temps normal. De plus, l'utilisateur souhaite surement lui-même trouver plus facilement un certain contenu.<br>
 				<br>
 				Voici donc un exemple de filtre : celui-ci sert à afficher les projets de l'architecte référrént à celui-ci, avec potentiellement des filtres supplémentaires selon son bon vouloir.
@@ -68,7 +66,7 @@
     <o>if</o> (projectName.getText().length() >= 3)
         request = request + <gr>" AND P.project_name LIKE '"</gr> + projectName.getText() + <gr>"%'"</gr>;
     System.<pu>out</pu>.println(request)<o>;</o>
-	
+
     <o>return</o> request<o>;</o>
 }
 			</code></pre>
@@ -87,12 +85,12 @@ String request = <gr>"SELECT A.architect_id, CONCAT(U.user_firstname, <o>\"</o> 
 			    </code></pre>
 
 			    Voici donc le filtre par défaut: il s'agit donc du filtre de permission: <br>
-			    <li>Dans SELECT</li> tout ce qui est séparé par des "," sont les collones des tables de la base de donnée qui seront affichées. Leur syntaxe est la suivante : [Alias].[Column].<br>
+			    <li>Dans SELECT,</li> tout ce qui est séparé par des "," sont les collones des tables de la base de donnée qui seront affichées. Leur syntaxe est la suivante : [Alias].[Column].<br>
 			    L'alias est un identifiant pour alléger le code lorsque plusieurs tables sont utilisées en même temps et donc le rendre plus lisible.
 
-			    <li>Dans FROM</li>, ce qui suit sont les tables utilisées pour l'affichage de leur(s) colonne(s). C'est ici que l'on leur attribut l'alias: [Table] AS [Alias].
+			    <li>Dans FROM,</li> ce qui suit sont les tables utilisées pour l'affichage de leur(s) colonne(s). C'est ici que l'on leur attribut l'alias: [Table] AS [Alias].
 
-			    <li>Dans WHERE</li>, il s'agit de conditions à remplir: seules les résultats de ce premier filtre de permission qui rempliront tous les critères seront acceptés. le filtrage n'est pas encore effectué puisqu'il s'agit juste de remplir un String.<br>
+			    <li>Dans WHERE,</li> il s'agit de conditions à remplir: seules les résultats de ce premier filtre de permission qui rempliront tous les critères seront acceptés. le filtrage n'est pas encore effectué puisqu'il s'agit juste de remplir un String.<br>
 			    Dans cet exemple, nous verifions pour chaque ligne que : le projet est bien supervisé par l'architecte et que l'utilisateur connecté est bien l'architecte en question.<br>
 			    <br>
 
@@ -103,9 +101,9 @@ String request = <gr>"SELECT A.architect_id, CONCAT(U.user_firstname, <o>\"</o> 
 	request = request + <gr>" AND U.user_firstname LIKE '"</gr> + userFirstName.getText() + <gr>"%'"</gr><o>;</o>
 			    </code></pre>
 
-			    <li>Dans le IF</li>, nbous vérifions que le champs de texte que l'utilisateur a rempli précédemment contienne au moins 3 caractères: sinon, le filtre n'a pas lieu d'être et nous passons à la prochaine vérification OU au return.
+			    <li>Dans le IF,</li> nbous vérifions que le champs de texte que l'utilisateur a rempli précédemment contienne au moins 3 caractères: sinon, le filtre n'a pas lieu d'être et nous passons à la prochaine vérification OU au return.
 
-			    <li>Si la condition est VRAIE</li>, alors nous ajoutons à notre String une condition "AND" supplémentaire.<br>
+			    <li>Si la condition est VRAIE,</li> alors nous ajoutons à notre String une condition "AND" supplémentaire.<br>
 			    La condition supplémenaire ci-dessus vérifie que le prénom de l'utilisateur de la table (et non de l'appli) commence bien par le texte entré dans le champs de texte userFirstName, le % indiquant que la suite du texte n'est pas filtrée.<br>
 			    Nous vérifions le tetxe avec LIKE plutôt qu'un "=" afin de pouvoir vérifier une ressemblance et non si le texte est parfaitement égal.<br><br>
 
@@ -114,10 +112,10 @@ String request = <gr>"SELECT A.architect_id, CONCAT(U.user_firstname, <o>\"</o> 
 		</div>
 		<div>
 			<p>
-				<h2>AFFICHAGE COMPORTEMENT</h2><br>
+				<h3 style="padding-top: 5%;">AFFICHAGE COMPORTEMENT</h3><br>
 				Afin d'être utilisable par le plus grand nombre, l'application s'affiche par le biais d'une interface graphique. L'affichage dépend des paramères de l'utilisateur, par exemple son rôle ou ses actions.<br>
 				<br>
-				Voici donc un exemple de basculement entre affichage et comportement : 
+				Voici donc un exemple de basculement entre affichage et comportement :
 				<br>
 			</p>
 			<p>
@@ -125,7 +123,7 @@ String request = <gr>"SELECT A.architect_id, CONCAT(U.user_firstname, <o>\"</o> 
 <o>public class</o> Display implements ActionListener {
     <o>private</o> UpdateProfile <pu>updateProfile</pu> = <o>new</o> UpdateProfile()<o>;</o>
     <o>private</o> EditableTable <pu>editableTable</pu> = <o>new</o> EditableTable()<o>;</o>
-	
+
     <o>private</o> JFrame <pu>window</pu> = <o>new</o> JFrame()<o>;</o>
     <o>private</o> JMenu <pu>accessMenu</pu> = <o>new</o> JMenu(<gr>"Se connecter / S'enregistrer"</gr>)<o>;</o>
     <o>private</o> JMenuBar <pu>cho</pu> = <o>new</o> JMenuBar()<o>;</o>
@@ -157,7 +155,7 @@ String request = <gr>"SELECT A.architect_id, CONCAT(U.user_firstname, <o>\"</o> 
                 <gr>"userName"</gr><o>,</o> <gr>"passWord"</gr>)<o>;</o>
         setWindow()<o>;</o>
     }
-	
+
     JButton leave = <o>new</o> JButton(<gr>"EXIT"</gr>)<o>;</o>
     <gr>/**
      * Displays the main window (Connection / logIn)
@@ -184,7 +182,7 @@ String request = <gr>"SELECT A.architect_id, CONCAT(U.user_firstname, <o>\"</o> 
         <pu>window</pu>.add(<pu>c1</pu>)<o>;</o>
         <pu>window</pu>.getContentPane().add(<pu>panel</pu>)<o>;</o>
         <pu>window</pu>.setVisible(<o>true</o>)<o>;</o>
-		
+
         <pu>leave</pu>.addActionListener(<o>new</o> ActionListener() {
             @Override
             <o>public</o> void actionPerformed(ActionEvent e) {
@@ -219,7 +217,7 @@ String request = <gr>"SELECT A.architect_id, CONCAT(U.user_firstname, <o>\"</o> 
             <pu>architectTableModel</pu>.removeRow(i)<o>;</o>
         }
     }
-    
+
     <ga>//MENUS AND MENULIST</ga>
     <pu>accessMenu</pu>.removeAll()<o>;</o>
     <pu>accessMenu</pu>.revalidate()<o>;</o>
@@ -227,14 +225,14 @@ String request = <gr>"SELECT A.architect_id, CONCAT(U.user_firstname, <o>\"</o> 
     <pu>cho</pu>.removeAll()<o>;</o>
     <pu>cho</pu>.revalidate()<o>;</o>
     <pu>cho</pu>.repaint()<o>;</o>
-    
+
     <ga>//JTEXT AND JPASS</ga>
     <pu>userMailJTF</pu>.setText(<o>null</o>)<o>;</o>
     <pu>passWord</pu>.setText(<o>null</o>)<o>;</o>
     <pu>newMail</pu>.setText(<o>null</o>)<o>;</o>
     <pu>confirmPass</pu>.setText(<o>null</o>)<o>;</o>
     <pu>newPass</pu>.setText(<o>null</o>)<o>;</o>
-    
+
     <ga>//BOXES</ga>
     <pu>l1</pu>.removeAll()<o>;</o>
     <pu>l1</pu>.revalidate()<o>;</o>
@@ -254,7 +252,7 @@ String request = <gr>"SELECT A.architect_id, CONCAT(U.user_firstname, <o>\"</o> 
     <pu>c1</pu>.removeAll()<o>;</o>
     <pu>c1</pu>.revalidate()<o>;</o>
     <pu>c1</pu>.repaint()<o>;</o>
-    
+
     <ga>//PANEL AND WINDOW</ga>
     <pu>panel</pu>.removeAll()<o>;</o>
     <pu>panel</pu>.revalidate()<o>;</o>
@@ -286,12 +284,12 @@ String request = <gr>"SELECT A.architect_id, CONCAT(U.user_firstname, <o>\"</o> 
 			</p>
 		</div>
 	<div id=#maDoc>
-	<h2>Documentation technique de la liaison JTable/BDD</h2>
-	<p>Notre application permet de modifier directement la base de donnée à travers un tableau affichant ses informations</p>
+	<h3 style="padding-top: 5%;">DOCUMENTATION TECHNIQUE DE LA LIAISON JTABLE/BDD</h3><br>
+	<p>Notre application permet de modifier directement la base de donnée à travers un tableau affichant ses informations :</p>
 	<div class="conteneurImgs">
-		<img src="img/modifTable1.png">
-		<img src="img/modifTable2.png">
-		<img src="img/modifTable3.png">
+		<img src="img/modifTable1.png" style="width: 100%;">
+		<img src="img/modifTable2.png" style="width: 100%;">
+		<img src="img/modifTable3.png" style="width: 100%;">
 	</div>
 	<p>Pour ce faire, nous créons pour commencer notre JTable qui vont afficher les informations de la BDD, ici on veut gérer les utilisateurs en tant qu'admin</p>
 	<div class = "conteneurCode">
@@ -364,13 +362,14 @@ aModel.addTableModelListener(<o>new</o> TableModelListener() { <ga>//On ajoute l
 }
 		</code></pre>
 	</div>
-	<h3>Nous avons donc réussi à éditer la base de donnée en direct grâce à notre Jtable !</h3>
-	<h2>Stockage des infos utilisateur (pseudo, password...) dans un fichier INI</h2>
+	<p>Nous avons donc réussi à éditer la base de donnée en direct grâce à notre Jtable !</p>
+
+	<h3 style="padding-top: 5%;">STOCKAGE DES INFOS UTILISATEURS (PSEUDO, PASSWORD...) DANS UN FICHIER INI</h3><br>
 	<p>Nous allons voir comment procéder à la récupération des informations de l'utilisateur courant et les stocker dans un fichier INI</p>
 	<p>Lors d'une connexion, un bouton à cocher est présent à la droite du bouton de connexion. Coché par l'utilisateur, il permettra de préremplir automatiquement les champs de texte</p>
 	<div class="conteneurImgs">
-		<img src="img/Ini1.png">
-		<img src="img/Ini2.png">
+		<img src="img/Ini1.png" style="width: 100%;">
+		<img src="img/Ini2.png" style="width: 100%;">
 	</div>
 	<p>Lors de la connexion de l'utilisateur, on vérifie s'il a coché la case "Remember my informations"</p>
 	<p>S'il l'a fait et que la connexion a réussi, on procède à la création d'un fichier d'informations INI</p>
@@ -389,8 +388,8 @@ aModel.addTableModelListener(<o>new</o> TableModelListener() { <ga>//On ajoute l
         e.printStackTrace()<o>;</o>
     }
 }
-	</code></pre>	
-	<img src="img/Ini3.png">
+	</code></pre>
+	<img src="img/Ini3.png" style="width: 100%;">
 	<p>Voici le fichier créer et les informations stockées dedans</p>
 	<p>Nous voulons maintenant, lorsque l'écran d'accueil est chargé que les champs de texte soient préremplis avec les informations contenues dans le fichier Ini</p>
 	<pre><code>
@@ -409,19 +408,19 @@ aModel.addTableModelListener(<o>new</o> TableModelListener() { <ga>//On ajoute l
 	}
 }
 	</code></pre>
-	<h3>Et voilà, nos champs de connexion sont désormais préremplis lors du chargement de la fenêtre !</h3>
+	<p>Et voilà, nos champs de connexion sont désormais préremplis lors du chargement de la fenêtre !</p>
 	</div>
 	</div>
 	<!-- Footer / credits -  -->
-	<footer>
+	<footer style="margin-top: 5%;">
 		<div class="low-foot">
-			<div><a href="">©2020 Tous droits réservés</a></div>
+			<div><a href="">© 2020 Tous droits réservés</a></div>
 			<div><a href="contact.html">Contact</a></div>
 		</div>
 	</footer>
 
 	<script>
-		/* When the user clicks on the button, 
+		/* When the user clicks on the button,
 		toggle between hiding and showing the dropdown content */
 		function myFunction(event) {
 			event.stopPropagation();

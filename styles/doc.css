@@ -2,8 +2,8 @@
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    background-color: #444444;
-    color: white;
+    background-color: #FFFFFF;
+    color: #555F66;
     max-height: 0px;
     overflow: hidden;
     /* You should prefix the following: */
@@ -15,17 +15,34 @@
     max-height: unset;
 }
 
+#contentNewUser p {
+    font-size: 1rem;
+}
+
+#contentNewUser li {
+    font-size: 1rem;
+}
+
 #contentCustomer {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    background-color: #444444;
-    color: white;
+    background-color: #FFFFFF;
+    color: #555F66;
     max-height: 0px;
     overflow: hidden;
     /* You should prefix the following: */
     transition: max-height 1000ms;
 }
+
+#contentCustomer p {
+    font-size: 1rem;
+}
+
+#contentCustomer li {
+    font-size: 1rem;
+}
+
 
 .sub-content img {
     width: 90%;
@@ -52,8 +69,8 @@
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    background-color: #444444;
-    color: white;
+    background-color: #FFFFFF;
+    color: #555F66;
     max-height: 0px;
     overflow: hidden;
     /* You should prefix the following: */
@@ -65,12 +82,22 @@
     max-height: unset;
 }
 
+#contentArchitect p {
+    text-align: justify;
+    font-size: 1rem;
+}
+
+#contentArchitect li {
+    text-align: justify;
+    font-size: 1rem;
+}
+
 #contentAdmin {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    background-color: #444444;
-    color: white;
+    background-color: #FFFFFF;
+    color: #555F66;
     max-height: 0px;
     overflow: hidden;
     /* You should prefix the following: */
@@ -80,6 +107,16 @@
 #contentAdmin.active {
     /* Depending on this value, your animatiom will seem faster or shorter */
     max-height: unset;
+}
+
+#contentAdmin p {
+    text-align: justify;
+    font-size: 1rem;
+}
+
+#contentAdmin li {
+    text-align: justify;
+    font-size: 1rem;
 }
 
 pre {

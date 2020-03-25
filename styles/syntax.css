@@ -1,3 +1,10 @@
+#contentDocTech {
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: justify;
+}
+
 o {
 	color: orange;
 }
@@ -20,8 +27,4 @@ y {
 
 by {
 	background-color: rgba(255, 200, 200, 0.4);
-}
-
-img {
-	width: 90%;
 }

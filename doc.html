@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="styles/style.css">
 	<link rel="stylesheet" href="styles/doc.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
@@ -19,9 +20,9 @@
 					<a href="accueil.html"><img style="height: 3vw" src="https://static1.squarespace.com/static/59f0de346957da078de340e3/t/5be9824d032be4540ec984d1/1542029902989/CA_PRIMARY_LOGO.png?format=1500w"></a>
 				</div>
 				<div id="navbar">
-					<a href="accueil.html">ACCUEIL</a>
-					<a href="doc.html">DOCUMENTATION</a>
-					<a href="doctech.html">DOC TECHNIQUE</a>
+					<a href="accueil.html">Accueil</a>
+					<a href="doc.html">Documentation</a>
+					<a href="doctech.html">Doc Technique</a>
 				</div>
 				<div class="dropdown">
 					<button onclick="myFunction(event)" class="dropbtn">
@@ -37,22 +38,22 @@
 			</div>
 		</div>
 		<div>
-			<img style="width: 100%" src="https://d32ogoqmya1dw8.cloudfront.net/images/integrate/teaching_materials/global_energy/earths_thermostat_banner_3.jpg">
+			<img style="width: 100%" src="img/documentation.jpg">
 		</div>
 	</header>
 
 	<div>
 		<div class="category">
-			<div style="display: flex; justify-content: space-between; width: 90%; margin-left: auto; margin-right: auto;">
-				<button style="font-size: 2vw;" onmouseenter="showHideNewUser()">NOUVEL UTILISATEUR</button>
-				<button style="font-size: 2vw;" onmouseenter="showHideCustomer()">CLIENT</button>
-				<button style="font-size: 2vw;" onmouseenter="showHideArchitect()">ARCHITECTE</button>
-				<button style="font-size: 2vw;" onmouseenter="showHideAdmin()">ADMINISTRATEUR</button>
+			<div style="display: flex; justify-content: space-between; width: 100%; margin-left: auto; margin-right: auto;">
+				<button style="font-size: 20px;" onmouseenter="showHideNewUser()">NOUVEL UTILISATEUR</button>
+				<button style="font-size: 20px;" onmouseenter="showHideCustomer()">CLIENT</button>
+				<button style="font-size: 20px;" onmouseenter="showHideArchitect()">ARCHITECTE</button>
+				<button style="font-size: 20px;" onmouseenter="showHideAdmin()">ADMINISTRATEUR</button>
 			</div>
 		</div>
 		<div id="contentNewUser" class="active">
 			<div class="sub-content">
-				<div id="Download" style="text-align: center;">
+				<div id="Download" style="text-align: center; padding-top: 2%;">
 					<h3>REGISTER / LOG IN</h3>
 				</div>
 				<div id="Register / Log In" style="text-align: justify;">
@@ -83,7 +84,7 @@
 							<li>Enter your password: insérez votre mot de passe. Celui-ci doit faire au moins 12 caractères, comporter au moins 3 chiffres, 3 minuscules, 2 majuscules et 2 caractères spéciaux.</li>
 							<li>Choose your role: sélectionnez le rôle que vous souhaitez obtenir, "Architect" pour architecte et "Customer" pour client. Ce sera à l'administateur de vous valider manuellement.</li>
 							<br>
-							Pour finir, appuyez sur "Validate" pour confirmer votre inscription. Vous pourrez dès à présent vous connecter.
+							<p>Pour finir, appuyez sur "Validate" pour confirmer votre inscription. Vous pourrez dès à présent vous connecter.</p>
 						</div>
 					</div>
 				</div>
@@ -125,10 +126,10 @@
 										<li>Le nom de Projet</li>
 										<li>le nom d'utilisateur</li>
 										<li>Le prénom d'utilisateur</li>
-										Les architectes peuvent faire de même.
-									</p>
-									<p>
-										En haut se situent les projets et les émeteurs des messages trié du plus réçent au plus ancien.
+										<br>
+										<p>Les architectes peuvent faire de même.</p>
+										<br>
+										<p>En haut se situent les projets et les émeteurs des messages trié du plus réçent au plus ancien.
 										<li>Cliquez dessus pour afficher tous les messages entre lui et vous dans l'interface en bas.</li>
 										<li>Cliquez sur "Answer" pour répondre au message.</li>
 									</p>
@@ -154,11 +155,13 @@
 							<li style="padding-top: 7%;">General</li>
 							<p>
 								En tant que client, vous aurez surement un ou plusieurs projets effectué sur votre demande. Vous pourrez consulter l'avancée de chacun d'entre eux avec filtrage.
+							</p>
+							<br>
 								<li>Nom de projet</li>
 								<li>Nom de l'architecte référrent</li>
 								<li>Prénom de l'architecte référrent</li>
-								Vous pourrez consulter les détails de votre projet en cliquant sur les boutons.
-							</p>
+								<p>Vous pourrez consulter les détails de votre projet en cliquant sur les boutons.</p>
+							<br>
 							<li>Get project's details : pour voir les détails comme les matériaux du projet, les coûts...</li>
 							<li>get project's steps : Consultez l'avancée de votre projet avec les différentes étapes et informations par rapport à celles ci.</li>
 							<li>Details</li>
@@ -171,10 +174,11 @@
 	</div>
 	<div id="contentArchitect">
 		<div class="sub-content">
-			<h3 style="text-align: center;">MODIFY PROJECT</h3>
+			<h3 style="text-align: center; padding-top: 2%;">MODIFY PROJECT</h3>
+			<br>
 			<img src="img/menuArch.png" style="text-align: center;">
 			<div id="ModifyOwnedProjects">
-				<p style="text-align: center">
+				<p>
 					En tant qu'architecte, vous avez la capacité de modifier le contenu de n'importe quel projet sur lequel vous êtes référent. Pour modifier une donnée, il vous suffit de double-clicker dessus puis de taper le texte que vous souhaitez. Une fois cela fait, appuyez sur la touche "ENTRER" de votre clavier et hop, l'information est mise à jour !<br>
 				</p>
 				<li>General</li>
@@ -182,17 +186,17 @@
 					<div style="flex-basis: 50%;">
 						<img src="img/projectArch.png">
 					</div>
-					<div style="flex-basis: 35%">
+					<div style="flex-basis: 50%">
 						<p>
 							Voici ici les informations globales du projet. Vous pouvez les modifier directement comme décrit plus haut ou juste sélectionner le projet que vous souhaitez et cliquer sur "get project details" ou "get project steps" pour obtenir respectivement les détails du projet ou ses étapes.
-							<li>name</li> Il s'agit du nom du projet.
-							<li>customer_name</li> Le nom du client pour ce projet.
-							<li>architect_name</li> votre nom en tant qu'architecte référrant.
-							<li>start_datetime</li> La date de démarrage du projet. Doit respecter la syntaxe AAAA-MM-DD HH:mm.
-							<li>delivery_datetime</li> La date prévue pour la livraison du projet. Doit respecter la syntaxe AAAA-MM-DD HH:mm.
-							<li>quotation</li> Le prix du projet pour le client.
-							<li>commentary</li> Un commentaire rapide sur le projet.
 						</p>
+							<li>name</li> <p>Il s'agit du nom du projet.</p>
+							<li>customer_name</li> <p>Le nom du client pour ce projet.</p>
+							<li>architect_name</li> <p>Votre nom en tant qu'architecte référrant.</p>
+							<li>start_datetime</li> <p>La date de démarrage du projet. Doit respecter la syntaxe AAAA-MM-DD HH:mm.</p>
+							<li>delivery_datetime</li> <p>La date prévue pour la livraison du projet. Doit respecter la syntaxe AAAA-MM-DD HH:mm.</p>
+							<li>quotation</li> <p>Le prix du projet pour le client.</p>
+							<li>commentary</li> <p>Un commentaire rapide sur le projet.</p>
 					</div>
 				</div>
 				<li>Details</li>
@@ -200,15 +204,15 @@
 					<div style="flex-basis: 50%;">
 						<img src="img/projectDetailsArch.png">
 					</div>
-					<div style="flex-basis: 45%;">
+					<div style="flex-basis: 50%;">
 						<p>
 							Vous pourrez ici éditer les matériaux liés au projet, de sorte à ce que le prix total situé plus bas se mette aussi à jour. La modification se fait de la même manière que décrite ci-dessus, en sélectionnant puis éditant la case.
-
-							<li>project_name</li> Il s'agit du nom du projet.
-							<li>material_name</li> le nom du matériau.
-							<li>needed_surface</li> La surface en m² de matériau à utiliser. Doit être un nombre.
-							<li>cost</li> Le coût du matériau au m². Doit être un nombre.
 						</p>
+
+							<li>project_name</li> <p>Il s'agit du nom du projet.</p>
+							<li>material_name</li> <p>Le nom du matériau.</p>
+							<li>needed_surface</li> <p>La surface en m² de matériau à utiliser. Doit être un nombre.</p>
+							<li>cost</li> <p>Le coût du matériau au m². Doit être un nombre.</p>
 					</div>
 				</div>
 				<li>Used Materials</li>
@@ -216,16 +220,16 @@
 					<div style="flex-basis: 50%;">
 						<img src="img/stepProjectArch.png">
 					</div>
-					<div style="flex-basis: 45%;">
+					<div style="flex-basis: 50%;">
 						<p>
 							Vous pourrez ici éditer les étapes liées au projet, toujours par sélection puis modification directe. Un  petit bouton en bas vous permettra d'ajouter de nouvelles étapes au projet sélectionné.
-							<li>project_name</li> Il s'agit du nom du projet.
-							<li>architect_name</li> Le nom de l'architecte attelé à l'étape.
-							<li>step_name</li> le nom de l'étape.
-							<li>start_datetime</li> La date de démarrage de l'étape. Doit respecter la syntaxe AAAA-MM-DD HH-mm.
-							<li>done_datetime</li> La date prévue pour la livraison de l'étape. Doit respecter la syntaxe AAAA-MM-DD HH-mm.
-							<li>commentary</li> Un commentaire rapide sur l'étape.
 						</p>
+							<li>project_name</li> <p>Il s'agit du nom du projet.</p>
+							<li>architect_name</li> <p>Le nom de l'architecte attelé à l'étape.</p>
+							<li>step_name</li> <p>Le nom de l'étape.</p>
+							<li>start_datetime</li> <p>La date de démarrage de l'étape. Doit respecter la syntaxe AAAA-MM-DD HH-mm.</p>
+							<li>done_datetime</li> <p>La date prévue pour la livraison de l'étape. Doit respecter la syntaxe AAAA-MM-DD HH-mm.</p>
+							<li>commentary</li> <p>Un commentaire rapide sur l'étape.</p>
 					</div>
 				</div>
 			</div>
@@ -234,113 +238,122 @@
 	<div id="contentAdmin">
 		<div class="sub-content">
 			<div id="GodMod">
-				<p>
+				<p style="padding-top: 2%;">
 					L'administrateur a tous les droits utilisateurs. Cependant, celui-ci a une interface différente. Il a donc accès à toute la messagerie, aux utilisateurs, aux projets et leurs détails ainsi qu'à la gestion des nouveaux inscrits.<br>
-					pour modifier le contenu d'une case dans les tableaux qui seront montrés, il suffit de double-clicker dessus, réécrire le texte à l'intérieur avant d'appuyer sur la touche "ENTRER".
+					pour modifier le contenu d'une case dans les tableaux qui seront montrés, il suffit de double-cliquer dessus, réécrire le texte à l'intérieur avant d'appuyer sur la touche "ENTRER".
 				</p>
-				<h8>CRUD</h8>
+				<br>
+				<h3 style="text-align: center;">CRUD</h3>
+				<br>
 				<li>Users</li>
 				<div style="display: flex; flex-wrap: wrap;">
 					<div style="flex-basis: 50%;">
 						<img src="img/userManagement.png">
 					</div>
-					<div style="flex-basis: 45%;">
+					<div style="flex-basis: 50%;">
 						<p>
-							L'interface de gestion d'utilisateur permet à l'administrateur de gérer tous les utilistauers qui ne sont pas administrateurs. Il est possible de filtrer les utilisateurs selon leur rôle: "architect" ou "customer", correspondant à "architecte" et "client".<br>
-							<li>name</li> Le nom de l'utilisateur.
-							<li>firstname</li> Le prénom de l'utilisateur.
-							<li>mail</li> Il s'agit de l'adresse mail de l'utilisateur pour se connecter à l'application. Nous vous conseillons de n'y toucher que si l'utilisateur perd son adresse mail.
-							<li>password</li> Il s'agit du mot de passe en clair de l'utilisateur pour se connecter à l'application. Nous vous conseillons de n'y toucher que si l'utilisateur perd son accès.
-							<li>role</li> Permet de modifier le role de l'utilisateur et par conséquent ses permissions. Si vous vous trompez d'orthographe lors du filtre, retirez le filtre pour retrouver l'utilisateur en question.
-							<li>signdatetime</li> La date et l'heure d'inscription de l'utilisateur sur l'application. Doit respecter la syntaxe suivante: AAAA-MM-JJ HH:mm.
-
-							<br><br>
-							Vous pouvez sélectionner un utilisateur puis cliquer sur "Delete an user" pour l'effacer.
+							L'interface de gestion d'utilisateur permet à l'administrateur de gérer tous les utilisateurs qui ne sont pas administrateurs. Il est possible de filtrer les utilisateurs selon leur rôle: "architect" ou "customer", correspondant à "architecte" et "client".
 						</p>
+							<li>name</li> <p>Le nom de l'utilisateur.</p>
+							<li>firstname</li> <p>Le prénom de l'utilisateur.</p>
+							<li>mail</li> <p>Il s'agit de l'adresse mail de l'utilisateur pour se connecter à l'application. Nous vous conseillons de n'y toucher que si l'utilisateur perd son adresse mail.</p>
+							<li>password</li> <p>Il s'agit du mot de passe en clair de l'utilisateur pour se connecter à l'application. Nous vous conseillons de n'y toucher que si l'utilisateur perd son accès.</p>
+							<li>role</li> <p>Permet de modifier le role de l'utilisateur et par conséquent ses permissions. Si vous vous trompez d'orthographe lors du filtre, retirez le filtre pour retrouver l'utilisateur en question.</p>
+							<li>signdatetime</li> <p>La date et l'heure d'inscription de l'utilisateur sur l'application. Doit respecter la syntaxe suivante: AAAA-MM-JJ HH:mm.</p>
+
+							<p>Vous pouvez sélectionner un utilisateur puis cliquer sur "Delete an user" pour l'effacer.</p>
 					</div>
 				</div>
+				<br>
 				<div style="display: flex; flex-wrap: wrap; margin-top: 15px;">
 					<div style="flex-basis: 50%;">
 						<img src="img/addUser.png">
 					</div>
-					<div style="flex-basis: 45%;">
+					<div style="flex-basis: 50%;">
 						<p>
 							En cliquant sur "Adding an user", vous accédez à un écran d'ajout d'utilisateur, afin de pré-créer ce dernier.
 							Dans l'ordre, vous pourrez y insérer les informations suivantes:
+						</p>
 							<li>Le nom</li>
 							<li>Le prénom</li>
-							<li>L'adresse mail</li> Doit être unique, sinon, l'action est refusée.
-							<li>le mot de passe</li> Doit faire 12 caractères minimum et doit contenit au moins 3 minuscules, 3 chiffres, 2 majuscules et 2 caractères spéciaux. Sinon, l'action est refusée
-							<li>Le role</li> Le menu déroulant vous propose soit Customer (client), soit architecte.
-							Cliquez sur "VALIDATE" pour inscrire l'utilisateur. Sa date d'inscription est comprise automatiquement.
-						</p>
+							<li>L'adresse mail</li> <p>Doit être unique, sinon, l'action est refusée.</p>
+							<li>Le mot de passe</li> <p>Doit faire 12 caractères minimum et doit contenit au moins 3 minuscules, 3 chiffres, 2 majuscules et 2 caractères spéciaux. Sinon, l'action est refusée</p>
+							<li>Le rôle</li> <p>Le menu déroulant vous propose soit Customer (client), soit architecte.
+							Cliquez sur "VALIDATE" pour inscrire l'utilisateur. Sa date d'inscription est comprise automatiquement.</p>
 					</div>
 				</div>
 				<div style="display: flex; flex-wrap: wrap;">
 					<div style="flex-basis: 50%;">
 						<img src="img/userValidation.png">
 					</div>
-					<div style="flex-basis: 45%;">
+					<div style="flex-basis: 50%;">
 						<p>
 							Lorsqu'un utilisateur s'inscrit sur l'application, celui-ci n'a pas automatiquement les droits autre que modifier son mail et/ou mot de passe. C'est donc à vous de valider son compte ou de le refuser. En cas de refus, l'utilisateur est supprimé.<br>
 							Pour valider ou refuser un utilisateur, cliquez sur sa ligne, puis cliquez sur "Accet selected user registration" ou "Reject selected user registration".
-							<li>role</li> présenté avec un "*" devant le rôle, cela signifie le rôle que l'utilisateur souhaite obtenir lors de son inscription. Ce rôle lui sera donné en cas de requête acceptée de votre part.
 						</p>
+							<li>role</li> <p>Présenté avec un "*" devant le rôle, cela signifie le rôle que l'utilisateur souhaite obtenir lors de son inscription. Ce rôle lui sera donné en cas de requête acceptée de votre part.</p>
 					</div>
 				</div>
-				<p>
+				<br>
+				<br>
 				<li>Projects</li>
+				<p>
 					L'interface de gestion des projets vous permet d'éditer les projets de tous les architectes et clients. Vous pourrez ainsi éditer les étapes de ces mêmes projets ainsi que les matériaux utilisés à l'intérieur de ces même projets.<br>
 					Pour modifier le cntenu d'une case, double-clickez dessus avant de remplacer son texte. puis, appuyez sur entrer pour valider le changement.
 				</p>
+				<br>
 				<div style="display: flex; flex-wrap: wrap;">
 					<div style="flex-basis: 50%;">
 						<img src="img/projectArch.png">
 					</div>
-					<div style="flex-basis: 45%;">
+					<div style="flex-basis: 50%;">
 						<p>
 							Voici ici les informations globales du projet. Vous pouvez les modifier directement comme décrit plus haut ou juste sélectionner le projet que vous souhaitez et cliquer sur "get project details" ou "get project steps" pour obtenir respectivement les détails du projet ou ses étapes.
-							<li>name</li> Il s'agit du nom du projet.
-							<li>customer_name</li> Le nom du client pour ce projet.
-							<li>architect_name</li> votre nom en tant qu'architecte référrant.
-							<li>start_datetime</li> La date de démarrage du projet. Doit respecter la syntaxe AAAA-MM-DD HH-mm.
-							<li>delivery_datetime</li> La date prévue pour la livraison du projet. Doit respecter la syntaxe AAAA-MM-DD HH-mm.
-							<li>quotation</li> Le prix du projet pour le client.
-							<li>commentary</li> Un commentaire rapide sur le projet.
 						</p>
+							<li>name</li> <p>Il s'agit du nom du projet.</p>
+							<li>customer_name</li> <p>Le nom du client pour ce projet.</p>
+							<li>architect_name</li> <p>Votre nom en tant qu'architecte référrant.</p>
+							<li>start_datetime</li> <p>La date de démarrage du projet. Doit respecter la syntaxe AAAA-MM-DD HH-mm.</p>
+							<li>delivery_datetime</li> <p>La date prévue pour la livraison du projet. Doit respecter la syntaxe AAAA-MM-DD HH-mm.</p>
+							<li>quotation</li> <p>Le prix du projet pour le client.</p>
+							<li>commentary</li> <p>Un commentaire rapide sur le projet.</p>
 					</div>
 				</div>
+				<br>
+				<br>
 				<li>Details</li>
 				<div style="display: flex; flex-wrap: wrap;">
 					<div style="flex-basis: 50%;">
 						<img src="img/projectDetailsArch.png">
 					</div>
-					<div style="flex-basis: 45%;">
+					<div style="flex-basis: 50%;">
 						<p>
 							Vous pourrez ici éditer les matériaux liés au projet, de sorte à ce que le prix total situé plus bas se mette aussi à jour. La modification se fait de la même manière que décrite ci-dessus, en sélectionnant puis éditant la case.
-
-							<li>project_name</li> Il s'agit du nom du projet.
-							<li>material_name</li> le nom du matériau.
-							<li>needed_surface</li> La surface en m² de matériau à utiliser. Doit être un nombre.
-							<li>cost</li> Le coût du matériau au m². Doit être un nombre.
 						</p>
+
+							<li>project_name</li> <p>Il s'agit du nom du projet.</p>
+							<li>material_name</li> <p>Le nom du matériau.</p>
+							<li>needed_surface</li> <p>La surface en m² de matériau à utiliser. Doit être un nombre.</p>
+							<li>cost</li> <p>Le coût du matériau au m². Doit être un nombre.</p>
 					</div>
 				</div>
+				<br>
+				<br>
 				<li>Used Materials</li>
 				<div style="display: flex; flex-wrap: wrap;">
 					<div style="flex-basis: 50%;">
 						<img src="img/stepProjectArch.png">
 					</div>
-					<div style="flex-basis: 45%;">
+					<div style="flex-basis: 50%;">
 						<p>
 							Vous pourrez ici éditer les étapes liées au projet, toujours par sélection puis modification directe. Un  petit bouton en bas vous permettra d'ajouter de nouvelles étapes au projet sélectionné.
-							<li>project_name</li> Il s'agit du nom du projet.
-							<li>architect_name</li> Le nom de l'architecte attelé à l'étape.
-							<li>step_name</li> le nom de l'étape.
-							<li>start_datetime</li> La date de démarrage de l'étape. Doit respecter la syntaxe AAAA-MM-DD HH-mm.
-							<li>done_datetime</li> La date prévue pour la livraison de l'étape. Doit respecter la syntaxe AAAA-MM-DD HH-mm.
-							<li>commentary</li> Un commentaire rapide sur l'étape.
 						</p>
+							<li>project_name</li> <p>Il s'agit du nom du projet.</p>
+							<li>architect_name</li> <p>Le nom de l'architecte attelé à l'étape.</p>
+							<li>step_name</li> <p>Le nom de l'étape.</p>
+							<li>start_datetime</li> <p>La date de démarrage de l'étape. Doit respecter la syntaxe AAAA-MM-DD HH-mm.</p>
+							<li>done_datetime</li> <p>La date prévue pour la livraison de l'étape. Doit respecter la syntaxe AAAA-MM-DD HH-mm.</p>
+							<li>commentary</li> <p>Un commentaire rapide sur l'étape.</p>
 					</div>
 				</div>
 			</div>
@@ -348,9 +361,9 @@
 
 	</div>
 	<!-- Footer / credits -  -->
-	<footer>
+	<footer style="margin-top: 2%;">
 		<div class="low-foot">
-			<div><a href="">©2020 Tous droits réservés</a></div>
+			<div><a href="">© 2020 Tous droits réservés</a></div>
 			<div><a href="contact.html">Contact</a></div>
 		</div>
 	</footer>

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/contact.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -20,9 +21,9 @@
           <a href="accueil.html"><img style="height: 3vw" src="https://static1.squarespace.com/static/59f0de346957da078de340e3/t/5be9824d032be4540ec984d1/1542029902989/CA_PRIMARY_LOGO.png?format=1500w"></a>
         </div>
         <div id="navbar">
-          <a href="accueil.html">ACCUEIL</a>
-          <a href="doc.html">DOCUMENTATION</a>
-          <a href="doctech.html">DOC TECHNIQUE</a>
+          <a href="accueil.html">Accueil</a>
+          <a href="doc.html">Documentation</a>
+          <a href="doctech.html">Doc Technique</a>
         </div>
         <div class="dropdown">
           <button onclick="myFunction(event)" class="dropbtn">
@@ -38,13 +39,17 @@
       </div>
     </div>
     <div>
-      <img style="width: 100%" src="https://d32ogoqmya1dw8.cloudfront.net/images/integrate/teaching_materials/global_energy/earths_thermostat_banner_3.jpg">
+      <img style="width: 100%" src="img/contact.jpg">
     </div>
   </header>
 
-  <p>
-    <br><br><br><br>
-  </br>
+  <p id="contentContact">
+    <div id="subContact">
+    <br>
+    <br>
+      <p>N'hésitez pas à entrer en contact avec nous pour obtenir plus d'informations.</p>
+    <br>
+    </div>
   </p>
 
   <div id="formulaire">
@@ -77,15 +82,23 @@
   </div>
 
 <p>
-  <br><br><br><br><br>
+  <br><br><br>
 </br>
 </p>
   <footer>
     <div class="low-foot">
-      <div><a href="">©2020 Tous droits réservés</a></div>
+      <div><a href="">© 2020 Tous droits réservés</a></div>
       <div><a href="">Contact</a></div>
     </div>
   </footer>
 
+<script>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction(event) {
+      event.stopPropagation();
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+</script>
 </body>
 </html>
