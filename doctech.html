@@ -378,7 +378,7 @@ aModel.addTableModelListener(<o>new</o> TableModelListener() { <ga>//On ajoute l
     <o>try</o> {
         <o>if</o> (checkBox.isSelected()) { <ga>//On vérifie que la case "Remember my informations"</ga>
             File file = <o>new</o> File(<gr>"infosCo.ini"</gr>)<o>;</o>
-            file.createNewFile()<o>;</o> <ga>//Si c'est le cas, on créer le fichier "infosCo.ini"<ga>
+            file.createNewFile()<o>;</o> <ga>//Si c'est le cas, on créer le fichier "infosCo.ini"</ga>
             Wini ini = <o>new</o> Wini(file)<o>;</o> <ga>//On utilise la bibliothèque ini4j pour manipuler le fichier .ini</ga>
             ini.put(<gr>"InfosCo"</gr><o>,</o> <gr>"mail"</gr><o>,</o> mail.getText())<o>;</o>
             ini.put(<gr>"InfosCo"</gr><o>,</o> <gr>"password"</gr><o>,</o> passWord.getText())<o>;</o>
